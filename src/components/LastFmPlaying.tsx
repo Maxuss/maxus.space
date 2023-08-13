@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {Unmute} from "@react95/icons";
 
 import "../styles/LastFmPlaying.css"
+import styled from "styled-components";
 
 // api key from https://github.com/vojislav/lastfm-now-playing/blob/main/main.js ty :3
 const API_URL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&format=json&api_key=d74f9fdb9c79a50ffac2ca0700892ca1&limit=1&user=maxusdev";
@@ -32,6 +33,18 @@ function fetchLastFmData(handler: (v: LastFmTrack) => void) {
     }
 }
 
+const PlayingTrack = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px
+`;
+
+const TrackDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
 export const LastFmPlaying = () => {
     const [isClosed, close] = useState(false);
     // placeholder data for loading
@@ -45,26 +58,30 @@ export const LastFmPlaying = () => {
         }, 60_000) // fetch API every minute
     }, [])
 
+    // LastFM API does not return date only when the song is being currently played
+    const isCurrentlyListening = () => currentTrack.date === undefined;
+
     return (<>
         { !isClosed && <Modal
             closeModal={() => close(true)}
-            title="Last played music"
+            title={isCurrentlyListening() ? "Currently listening to" : "Last listened to"}
             width="300"
-            height="120"
+            height={isCurrentlyListening() ? "100" : "120"}
             defaultPosition={{x: 1000, y: 100}}
             icon={<Unmute variant="16x16_4" />}
         >
-            <div className={"playing-track"}>
+            <PlayingTrack>
                 <Avatar src={currentTrack.image[2]["#text"]} size={60} />
-                <div className={"track-description"}>
+                <TrackDescription>
                     <b><a href={currentTrack.url} target={"_blank"} style={{textDecoration: "none"}}>{truncateStr(currentTrack.name)}</a></b>
                     <span>by <b>{truncateStr(currentTrack.artist["#text"])}</b></span>
                     <span>on <b>{truncateStr(currentTrack.album["#text"])}</b></span>
-                </div>
-            </div>
+                </TrackDescription>
+            </PlayingTrack>
+            {currentTrack.date !== undefined &&
             <div style={{paddingTop: "10px"}}>
-                ({currentTrack.date === undefined ? "Playing now" : currentTrack.date["#text"]})
-            </div>
+                ({currentTrack.date["#text"]})
+            </div>}
         </Modal>}
         </>)
 }
