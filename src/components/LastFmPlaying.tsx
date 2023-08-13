@@ -1,10 +1,10 @@
-// api key from https://github.com/vojislav/lastfm-now-playing/blob/main/main.js :3
 import {Avatar, Modal} from "@react95/core";
 import {useEffect, useState} from "react";
 import {Unmute} from "@react95/icons";
 
 import "../styles/LastFmPlaying.css"
 
+// api key from https://github.com/vojislav/lastfm-now-playing/blob/main/main.js ty :3
 const API_URL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&format=json&api_key=d74f9fdb9c79a50ffac2ca0700892ca1&limit=1&user=maxusdev";
 
 interface LastFmTrack {
@@ -13,14 +13,7 @@ interface LastFmTrack {
     album: { "#text": string },
     name: string,
     url: string,
-    date: { "#text": string }
-}
-
-function fetchLastFmData(): LastFmTrack {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", API_URL, false);
-    xhr.send(null);
-    return JSON.parse(xhr.responseText).recenttracks.track[0] as LastFmTrack
+    date: { "#text": string } | undefined
 }
 
 // You Might Think He Loves You for Your Money But I Know What He Really Loves You for It's Your Brand New Leopard Skin Pillbox Hat
@@ -28,19 +21,34 @@ function truncateStr(str: string): string {
     return str.length > 35 ? `${str.slice(0, 35)}...` : str
 }
 
+function fetchLastFmData(handler: (v: LastFmTrack) => void) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", API_URL, true);
+    xhr.send(null);
+    xhr.onload = () => {
+        if(xhr.status == 200) {
+            handler(JSON.parse(xhr.responseText).recenttracks.track[0])
+        }
+    }
+}
+
 export const LastFmPlaying = () => {
     const [isClosed, close] = useState(false);
-    const [currentTrack, setCurrentTrack] = useState(fetchLastFmData());
+    // placeholder data for loading
+    const [currentTrack, setCurrentTrack] = useState<LastFmTrack>({
+        album: {"#text": "Loading..."}, artist: {"#text": "Loading..."}, date: {"#text": "Loading..."}, image: [{ "#text": "" }, {"#text": ""}, {"#text": ""}], name: "Loading...", url: ""
+    });
     useEffect(() => {
+        fetchLastFmData(setCurrentTrack)
         setInterval(() => {
-            setCurrentTrack(fetchLastFmData())
+            fetchLastFmData(setCurrentTrack)
         }, 60_000) // fetch API every minute
     }, [])
 
     return (<>
         { !isClosed && <Modal
             closeModal={() => close(true)}
-            title="Currently playing music"
+            title="Last played music"
             width="300"
             height="120"
             defaultPosition={{x: 1000, y: 100}}
@@ -55,7 +63,7 @@ export const LastFmPlaying = () => {
                 </div>
             </div>
             <div style={{paddingTop: "10px"}}>
-                ({currentTrack.date["#text"]})
+                ({currentTrack.date === undefined ? "Playing now" : currentTrack.date["#text"]})
             </div>
         </Modal>}
         </>)
