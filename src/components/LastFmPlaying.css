@@ -1,0 +1,11 @@
+.playing-track {
+    display: flex;
+    flex-direction: row;
+    gap: 10px
+}
+
+.track-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}

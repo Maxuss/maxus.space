@@ -4,6 +4,7 @@ import {Avatar, Modal} from "@react95/core";
 import {useState} from "react";
 
 import "./App.css"
+import {LastFmPlaying} from "./components/LastFmPlaying.tsx";
 
 function App() {
     const [isAboutClosed, setAboutClosed] = useState(false);
@@ -35,6 +36,8 @@ function App() {
                     </div>
                 </div>
             </Modal>}
+
+            <LastFmPlaying />
 
             <Bar />
         </div>
