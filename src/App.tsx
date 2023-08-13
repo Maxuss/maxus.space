@@ -4,6 +4,7 @@ import {Bar} from "./components/TaskBar.tsx";
 import {LastFmPlaying} from "./components/LastFmPlaying.tsx";
 import {AboutModal} from "./components/AboutModal.tsx";
 import {ProgramIcon, ProgramIcons} from "./components/ProgramIcon.tsx";
+import {ProjectExplorer} from "./components/ProjectExplorer.tsx";
 
 function App() {
     return (
@@ -19,6 +20,8 @@ function App() {
             <AboutModal />
 
             <LastFmPlaying />
+
+            <ProjectExplorer />
 
             <Bar />
         </div>
