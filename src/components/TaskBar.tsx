@@ -5,7 +5,7 @@ export function Bar() {
     return (
         <TaskBar list={
             <List>
-            <List.Item icon={<ReaderClosed variant="16x16_4" onClick={() => console.log("second clicked")} /> }>
+            <List.Item icon={<ReaderClosed variant="16x16_4" onClick={() => console.log("di")} /> }>
                 Local Disk (C:)
             </List.Item>
                 <List.Item icon={<WindowsExplorer variant="16x16_4" />} onClick={() => console.log("first clicked")}>
