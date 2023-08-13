@@ -58,7 +58,7 @@ export const AboutModal = () => {
     return (<>
         {!isAboutClosed && <Modal
             closeModal={() => setAboutClosed(true)}
-            width="400" height="400"
+            width="400" height="420"
             buttons={[{
                 value: "Ok",
                 onClick: () => setAboutClosed(true)
