@@ -3,7 +3,7 @@ import {Avatar, Modal} from "@react95/core";
 import {useEffect, useState} from "react";
 import {Unmute} from "@react95/icons";
 
-import "./LastFmPlaying.css"
+import "../styles/LastFmPlaying.css"
 
 const API_URL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&format=json&api_key=d74f9fdb9c79a50ffac2ca0700892ca1&limit=1&user=maxusdev";
 
@@ -55,7 +55,7 @@ export const LastFmPlaying = () => {
                 </div>
             </div>
             <div style={{paddingTop: "10px"}}>
-                (at {currentTrack.date["#text"]})
+                ({currentTrack.date["#text"]})
             </div>
         </Modal>}
         </>)
