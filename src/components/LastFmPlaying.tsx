@@ -67,7 +67,7 @@ export const LastFmPlaying = () => {
             title={isCurrentlyListening() ? "Currently listening to" : "Last listened to"}
             width="300"
             height={isCurrentlyListening() ? "100" : "120"}
-            defaultPosition={{x: 1000, y: 100}}
+            defaultPosition={{x: 35, y: 390}}
             icon={<Unmute variant="16x16_4" />}
         >
             <PlayingTrack>

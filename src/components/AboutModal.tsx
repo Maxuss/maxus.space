@@ -63,7 +63,7 @@ export const AboutModal = () => {
                 value: "Ok",
                 onClick: () => setAboutClosed(true)
             }]}
-            defaultPosition={{x: 200, y: 200}}
+            defaultPosition={{x: 50, y: 0}}
             title="About me"
             icon={<BlankScreen100 variant="32x32_4" />}
         >
