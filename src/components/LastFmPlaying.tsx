@@ -50,8 +50,8 @@ export const LastFmPlaying = () => {
                 <Avatar src={currentTrack.image[2]["#text"]} size={60} />
                 <div className={"track-description"}>
                     <b><a href={currentTrack.url} target={"_blank"} style={{textDecoration: "none"}}>{truncateStr(currentTrack.name)}</a></b>
-                    <span>by <b>{currentTrack.artist["#text"]}</b></span>
-                    <span>on <b>{currentTrack.album["#text"]}</b></span>
+                    <span>by <b>{truncateStr(currentTrack.artist["#text"])}</b></span>
+                    <span>on <b>{truncateStr(currentTrack.album["#text"])}</b></span>
                 </div>
             </div>
             <div style={{paddingTop: "10px"}}>
