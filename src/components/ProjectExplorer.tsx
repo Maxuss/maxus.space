@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Modal, Tree} from "@react95/core";
+import React, {ReactElement} from "react";
+import {Frame, Modal, Tree} from "@react95/core";
 import {
     FileCorrupted,
     FilePen,
@@ -8,9 +8,10 @@ import {
     FolderFile, FolderShared
 } from "@react95/icons";
 import {NodeProps} from "@react95/core/@types/Tree/Node";
+import ChatGptRs from "./projects/ChatGptRs.tsx";
 
-const TreeNodes: Array<NodeProps> = [
-    {
+function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
+    return [{
         label: "AI",
         icon: <Folder />,
         id: 0,
@@ -19,7 +20,8 @@ const TreeNodes: Array<NodeProps> = [
                 label: "ChatGPT.rs",
                 icon: <FilePen />,
                 id: 0,
-                onClick(event: React.MouseEvent | React.KeyboardEvent, props: NodeProps) {
+                onClick() {
+                    changeNotepadPage(<ChatGptRs />)
                 }
             },
         ]
@@ -68,19 +70,34 @@ const TreeNodes: Array<NodeProps> = [
         ]
     }
 ]
+}
 
-export const ProjectExplorer = () => {
-    const [isClosed, close] = useState(false);
+interface ProjectExplorerProps {
+    changeNotepadPage: (to: ReactElement) => void,
+    closeProjectExplorer: () => void
+}
 
-    return (<>
-        {!isClosed && <Modal
-            closeModal={() => close(true)}
+export const ProjectExplorer: React.FC<ProjectExplorerProps> = ({ changeNotepadPage, closeProjectExplorer }) => {
+    return (
+        <Modal
+            closeModal={() => closeProjectExplorer()}
             title={"Project Explorer"}
             icon={<FolderFile />}
             width={"300"}
-            height={"220"}
+            height={"120%"}
         >
-            <Tree data={TreeNodes}/>
-        </Modal>}
-        </>)
+            <Frame
+                bg="white"
+                boxShadow="in"
+                height="100%"
+                padding={10}
+                style={{
+                    overflowY: "auto",
+                    maxHeight: "60vh",
+                }}
+            >
+                <Tree data={treeNodes(changeNotepadPage)}/>
+            </Frame>
+        </Modal>
+    )
 }

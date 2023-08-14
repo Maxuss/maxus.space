@@ -1,5 +1,5 @@
-
-import styled from "styled-components";
+import styled, {WebTarget} from "styled-components";
+import {Cursor} from "@react95/core";
 
 export const ProgramIcon = styled.div`
   display: flex;
@@ -16,3 +16,9 @@ export const ProgramIcons = styled.div`
   display: flex;
   padding: 8px;
 `;
+
+export function ClickableIcon<Target extends WebTarget>(tg: Target) {
+    return styled(tg)`
+      ${Cursor["Pointer"]}
+    `;
+}

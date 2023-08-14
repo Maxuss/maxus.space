@@ -1,9 +1,9 @@
-import {useState} from "react";
 import {Avatar, Modal, ProgressBar} from "@react95/core";
-import {BlankScreen100} from "@react95/icons";
+import {Winhlp324000} from "@react95/icons";
 
 import "../styles/AboutModal.css"
 import styled from "styled-components";
+import React from "react";
 
 const AboutBox = styled.div`
   display: flex;
@@ -53,19 +53,22 @@ const LanguageProgressBar: React.FC<LanguageBarProps> = ({language, percentage})
     )
 }
 
-export const AboutModal = () => {
-    const [isAboutClosed, setAboutClosed] = useState(false);
-    return (<>
-        {!isAboutClosed && <Modal
-            closeModal={() => setAboutClosed(true)}
-            width="400" height="420"
+export interface AboutProps {
+    close: () => void
+}
+
+export const AboutModal: React.FC<AboutProps> = ({ close }) => {
+    return (
+        <Modal
+            closeModal={close}
+            width="400" height="390"
             buttons={[{
                 value: "Ok",
-                onClick: () => setAboutClosed(true)
+                onClick: () => close()
             }]}
             defaultPosition={{x: 50, y: 0}}
             title="About me"
-            icon={<BlankScreen100 variant="32x32_4" />}
+            icon={<Winhlp324000 variant="32x32_4" />}
         >
             <AboutBox>
                 <AboutAvatarBox>
@@ -79,9 +82,8 @@ export const AboutModal = () => {
                     <LargeFontSpan>here is how effective i am in my favorite languages:</LargeFontSpan>
                     <LanguageProgressBar language={"Java"} percentage={79} />
                     <LanguageProgressBar language={"Kotlin"} percentage={76} />
-                    <LanguageProgressBar language={"C#"} percentage={68} />
-                    <LanguageProgressBar language={"Rust"} percentage={65} />
-                    <LanguageProgressBar language={"TypeScript"} percentage={60} />
+                    <LanguageProgressBar language={"Rust"} percentage={68} />
+                    <LanguageProgressBar language={"C#"} percentage={65} />
                     <h2>i am currently interested in:</h2>
                     <SmallerList>
                         <SmallerListItem>learning functional programming (specifically OCaml/Haskell)</SmallerListItem>
@@ -90,6 +92,6 @@ export const AboutModal = () => {
                     </SmallerList>
                 </AboutBody>
             </AboutBox>
-        </Modal>}
-    </>)
+        </Modal>
+    )
 }

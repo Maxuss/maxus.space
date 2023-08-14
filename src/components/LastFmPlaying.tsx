@@ -1,6 +1,6 @@
 import {Avatar, Modal} from "@react95/core";
-import {useEffect, useState} from "react";
-import {Unmute} from "@react95/icons";
+import React, {useEffect, useState} from "react";
+import {CdMusic} from "@react95/icons";
 
 import "../styles/LastFmPlaying.css"
 import styled from "styled-components";
@@ -45,8 +45,11 @@ const TrackDescription = styled.div`
   justify-content: flex-start;
 `;
 
-export const LastFmPlaying = () => {
-    const [isClosed, close] = useState(false);
+export interface LastFmProps {
+    close: () => void
+}
+
+export const LastFmPlaying: React.FC<LastFmProps> = ({ close }) => {
     // placeholder data for loading
     const [currentTrack, setCurrentTrack] = useState<LastFmTrack>({
         album: {"#text": "Loading..."}, artist: {"#text": "Loading..."}, date: {"#text": "Loading..."}, image: [{ "#text": "" }, {"#text": ""}, {"#text": ""}], name: "Loading...", url: ""
@@ -61,14 +64,13 @@ export const LastFmPlaying = () => {
     // LastFM API does not return date only when the song is being currently played
     const isCurrentlyListening = () => currentTrack.date === undefined;
 
-    return (<>
-        { !isClosed && <Modal
-            closeModal={() => close(true)}
+    return (<Modal
+            closeModal={close}
             title={isCurrentlyListening() ? "Currently listening to" : "Last listened to"}
             width="300"
             height={isCurrentlyListening() ? "100" : "120"}
             defaultPosition={{x: 35, y: 390}}
-            icon={<Unmute variant="16x16_4" />}
+            icon={<CdMusic variant="16x16_4" />}
         >
             <PlayingTrack>
                 <Avatar src={currentTrack.image[2]["#text"]} size={60} />
@@ -82,6 +84,6 @@ export const LastFmPlaying = () => {
             <div style={{paddingTop: "10px"}}>
                 ({currentTrack.date["#text"]})
             </div>}
-        </Modal>}
-        </>)
+        </Modal>
+    )
 }
