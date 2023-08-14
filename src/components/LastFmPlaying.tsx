@@ -2,7 +2,6 @@ import {Avatar, Modal} from "@react95/core";
 import React, {useEffect, useState} from "react";
 import {CdMusic} from "@react95/icons";
 
-import "../styles/LastFmPlaying.css"
 import styled from "styled-components";
 
 // api key from https://github.com/vojislav/lastfm-now-playing/blob/main/main.js ty :3

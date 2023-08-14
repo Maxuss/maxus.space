@@ -1,7 +1,6 @@
 import {Avatar, Modal, ProgressBar} from "@react95/core";
 import {Winhlp324000} from "@react95/icons";
 
-import "../styles/AboutModal.css"
 import styled from "styled-components";
 import React from "react";
 
