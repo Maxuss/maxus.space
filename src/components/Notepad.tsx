@@ -1,6 +1,6 @@
 import React, {ReactElement} from "react";
 import {Frame, Modal, Tooltip} from "@react95/core";
-import {Notepad1} from "@react95/icons";
+import {Notepad1, WebLink} from "@react95/icons";
 import styled from "styled-components";
 
 export interface NotepadProps {
@@ -66,6 +66,17 @@ export const ProjectLinks: React.FC<LinkProps> = ({ links }) => {
                 )
             }
         </HorizontalContainer>
+    )
+}
+
+export interface ExternLinkProps {
+    href: string,
+    desc: string
+}
+
+export const ExternLink: React.FC<ExternLinkProps> = ({ href, desc }) => {
+    return (
+        <span><LinkHidden href={href} target={"_blank"} >{desc}</LinkHidden> <WebLink style={{marginRight: 5, height: 12, width: 12}} variant={"16x16_4"} /></span>
     )
 }
 

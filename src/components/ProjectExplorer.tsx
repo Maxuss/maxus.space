@@ -1,7 +1,7 @@
 import React, {ReactElement} from "react";
 import {Frame, Modal, Tree} from "@react95/core";
 import {
-    FileCorrupted,
+    FileCorrupted, FileFind,
     FilePen,
     Files,
     Folder,
@@ -9,6 +9,7 @@ import {
 } from "@react95/icons";
 import {NodeProps} from "@react95/core/@types/Tree/Node";
 import ChatGptRs from "./projects/ChatGptRs.tsx";
+import Flare from "./projects/Flare.tsx";
 
 function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
     return [{
@@ -32,17 +33,25 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
         id: 1,
         children: [
             {
+                label: "Flare.java",
+                icon: <FileFind />,
+                id: 0,
+                onClick() {
+                    changeNotepadPage(<Flare />)
+                }
+            },
+            {
                 label: "Macrocosm.kt",
                 icon: <FilePen />,
-                id: 0,
-                onClick(event: React.MouseEvent | React.KeyboardEvent, props: NodeProps) {
+                id: 1,
+                onClick() {
                 }
             },
             {
                 label: "SharpFunction.cs",
                 icon: <FileCorrupted />,
-                id: 1,
-                onClick(event: React.MouseEvent | React.KeyboardEvent, props: NodeProps) {
+                id: 2,
+                onClick() {
                 }
             }
         ]
@@ -56,14 +65,14 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                 label: "Conduit language (unfinished).rs",
                 icon: <Files />,
                 id: 0,
-                onClick(event: React.MouseEvent | React.KeyboardEvent, props: NodeProps) {
+                onClick() {
                 }
             },
             {
                 label: "Conduct language (unfinished).rs",
                 icon: <Files />,
                 id: 1,
-                onClick(event: React.MouseEvent | React.KeyboardEvent, props: NodeProps) {
+                onClick() {
 
                 }
             }
