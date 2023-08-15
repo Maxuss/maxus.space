@@ -18,16 +18,16 @@ const Nested = styled.div`
 export interface ExplorerProps {
     close: () => void,
     isMobile: boolean,
-    openNotepad: (ele: ReactElement) => void,
+    openNotepad: (name: string, ele: ReactElement) => void,
     openImageViewer: (src: string) => void
 }
 
 export const FileExplorer: React.FC<ExplorerProps> = ({ close, openNotepad, openImageViewer }) => {
     const [activeDirectory, setActiveDirectory] = useState(FileSystem)
 
-    const openFile = (ty: FileType, contents: ReactElement | string) => {
+    const openFile = (ty: FileType, name: string, contents: ReactElement | string) => {
         switch(ty) {
-            case "text": return openNotepad(contents as ReactElement)
+            case "text": return openNotepad(name, contents as ReactElement)
             case "image": return openImageViewer(contents as string)
         }
     }

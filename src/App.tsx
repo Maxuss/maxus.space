@@ -24,14 +24,16 @@ function App() {
     const [isAboutClosed, setAboutClosed] = useState(false);
     const [isLastFmClosed, setLastFmClosed] = useState(false);
     const [notepadComponent, setNotepadComponent] = useState(<Filler />);
+    const [openFileName, setOpenFileName] = useState("null.txt");
     const [isExplorerClosed, setExplorerClosed] = useState(true);
     const [isImageViewerClosed, setImageViewerClosed] = useState(true);
     const [imageViewerImage, setImageViewerImage] = useState("/vite.svg");
 
     const isMobile = window.innerWidth < 850;
 
-    const changeNotepadPage = (component: ReactElement) => {
+    const changeNotepadPage = (fileName: string, component: ReactElement) => {
         setNotepadComponent(component);
+        setOpenFileName(fileName);
         if(isNotepadClosed)
             setNotepadClosed(false)
     }
@@ -68,13 +70,13 @@ function App() {
 
             {!isLastFmClosed && <LastFmPlaying close={() => setLastFmClosed(true)} />}
 
-            {!isNotepadClosed && <Notepad openComponent={notepadComponent} isMobile={isMobile} closeNotepad={() => setNotepadClosed(true)} />}
+            {!isNotepadClosed && <Notepad fileName={openFileName} openComponent={notepadComponent} isMobile={isMobile} closeNotepad={() => setNotepadClosed(true)} />}
 
             {!isProjectExplorerClosed && <ProjectExplorer changeNotepadPage={changeNotepadPage} closeProjectExplorer={() => setProjectExplorerClosed(true)} />}
 
             {!isExplorerClosed && <FileExplorer openImageViewer={changeImageViewerImage} openNotepad={changeNotepadPage} isMobile={isMobile} close={() => setExplorerClosed(true)} />}
 
-            {!isImageViewerClosed && <ImageViewer src={imageViewerImage} close={() => setImageViewerClosed(true)} />}
+            {!isImageViewerClosed && <ImageViewer isMobile={isMobile} src={imageViewerImage} close={() => setImageViewerClosed(true)} />}
 
             <Bar />
         </div>

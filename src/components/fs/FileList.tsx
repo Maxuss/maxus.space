@@ -5,7 +5,7 @@ import {Unselectable} from "../../util.ts";
 
 export interface FileListProps {
     files: FileEntry[],
-    openFile: (fileType: FileType, e: ReactElement) => void,
+    openFile: (fileType: FileType, name: string, e: ReactElement | string) => void,
     setActiveFolder: (dir: Directory) => void
 }
 
@@ -33,7 +33,7 @@ export const FileList: React.FC<FileListProps> = ({ files, openFile, setActiveFo
                 } else {
                     // is a file
                     const file = entry as File;
-                    return <span onClick={() => openFile(file.ty, file.contents)}>
+                    return <span onClick={() => openFile(file.ty, file.display, file.contents)}>
                         <IconContainer>{file.icon}</IconContainer>
                         <Unselectable>{file.display}</Unselectable>
                     </span>

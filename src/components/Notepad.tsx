@@ -3,12 +3,6 @@ import {Frame, List, Modal, Tooltip} from "@react95/core";
 import {Notepad1, WebLink} from "@react95/icons";
 import styled from "styled-components";
 
-export interface NotepadProps {
-    openComponent: ReactElement,
-    isMobile: boolean,
-    closeNotepad: () => void
-}
-
 export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -88,11 +82,18 @@ export const ExternLink: React.FC<ExternLinkProps> = ({ href, desc }) => {
     )
 }
 
-export const Notepad: React.FC<NotepadProps> = ({ openComponent, isMobile, closeNotepad }) => {
+export interface NotepadProps {
+    openComponent: ReactElement,
+    fileName: string,
+    isMobile: boolean,
+    closeNotepad: () => void
+}
+
+export const Notepad: React.FC<NotepadProps> = ({ openComponent, fileName, isMobile, closeNotepad }) => {
     return (
         <Modal
             icon={<Notepad1 />}
-            title={`Notepad`}
+            title={`Notepad - ${fileName.toUpperCase()}`}
             closeModal={closeNotepad}
             buttons={[{ value: "Close", onClick: closeNotepad }]}
             menu={[

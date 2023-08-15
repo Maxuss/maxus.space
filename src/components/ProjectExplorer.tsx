@@ -24,7 +24,7 @@ import ConductLang from "./projects/ConductLang.tsx";
 import MaxusSpace from "./projects/MaxusSpace.tsx";
 import TerminalMaxusSpace from "./projects/TerminalMaxusSpace.tsx";
 
-function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
+function treeNodes(changeNotepadPage: (name: string, to: ReactElement) => void): NodeProps[] {
     return [
         {
             label: "AI",
@@ -36,7 +36,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <FilePen />,
                     id: 0,
                     onClick() {
-                        changeNotepadPage(<ChatGptRs />)
+                        changeNotepadPage("chatgpt.rs", <ChatGptRs />)
                     }
                 },
             ]
@@ -51,7 +51,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <FileFind />,
                     id: 0,
                     onClick() {
-                        changeNotepadPage(<Flare />)
+                        changeNotepadPage("flare.java", <Flare />)
                     }
                 },
                 {
@@ -59,7 +59,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <FileCorrupted />,
                     id: 1,
                     onClick() {
-                        changeNotepadPage(<SkyblockD />)
+                        changeNotepadPage("skyblockd.java", <SkyblockD />)
                     }
                 },
                 {
@@ -67,7 +67,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <FilePen />,
                     id: 2,
                     onClick() {
-                        changeNotepadPage(<Macrocosm />)
+                        changeNotepadPage("macrocosm.kt", <Macrocosm />)
                     }
                 },
                 {
@@ -75,7 +75,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <FileCorrupted />,
                     id: 3,
                     onClick() {
-                        changeNotepadPage(<SharpFunction />)
+                        changeNotepadPage("sharpfunction.cs", <SharpFunction />)
                     }
                 },
                 {
@@ -83,7 +83,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <FileText />,
                     id: 4,
                     onClick() {
-                        changeNotepadPage(<LobsterMessage />)
+                        changeNotepadPage("lobstermessage.rs", <LobsterMessage />)
                     }
                 },
                 {
@@ -91,7 +91,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <FileTransfer />,
                     id: 5,
                     onClick() {
-                        changeNotepadPage(<PicoLimbo />)
+                        changeNotepadPage("picolimbo.rs", <PicoLimbo />)
                     }
                 },
                 {
@@ -99,7 +99,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <FileFont />,
                     id: 6,
                     onClick() {
-                        changeNotepadPage(<ResourcepackD />)
+                        changeNotepadPage("resourcepackd.rs", <ResourcepackD />)
                     }
                 }
             ]
@@ -114,7 +114,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <Files />,
                     id: 0,
                     onClick() {
-                        changeNotepadPage(<ConduitLang />)
+                        changeNotepadPage("conduit.rs", <ConduitLang />)
                     }
                 },
                 {
@@ -122,7 +122,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <Files />,
                     id: 1,
                     onClick() {
-                        changeNotepadPage(<ConductLang />)
+                        changeNotepadPage("conduct.rs", <ConductLang />)
                     }
                 }
             ]
@@ -137,7 +137,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <Mshtml32528 variant={"16x16_4"}/>,
                     id: 0,
                     onClick() {
-                        changeNotepadPage(<MaxusSpace />)
+                        changeNotepadPage("maxus.space", <MaxusSpace />)
                     }
                 },
                 {
@@ -145,7 +145,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <BlankScreen100 variant={"16x16_4"} />,
                     id: 1,
                     onClick() {
-                        changeNotepadPage(<TerminalMaxusSpace />)
+                        changeNotepadPage("terminal.maxus.space", <TerminalMaxusSpace />)
                     }
                 }
             ]
@@ -160,7 +160,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <FileText />,
                     id: 0,
                     onClick() {
-                        changeNotepadPage(<DnevnikRust />)
+                        changeNotepadPage("dnevnik.rs", <DnevnikRust />)
                     }
                 }
             ]
@@ -169,7 +169,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
 }
 
 interface ProjectExplorerProps {
-    changeNotepadPage: (to: ReactElement) => void,
+    changeNotepadPage: (name: string, to: ReactElement) => void,
     closeProjectExplorer: () => void
 }
 
