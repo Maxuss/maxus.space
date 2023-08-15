@@ -17,6 +17,10 @@ export const ProgramIcons = styled.div`
   padding: 8px;
 `;
 
+export const IconName = styled.span`
+  color: #f0f0f0
+`
+
 export function Clickable<Target extends WebTarget>(tg: Target) {
     return styled(tg)`
       ${Cursor["Pointer"]}

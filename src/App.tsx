@@ -3,11 +3,13 @@ import {Bar} from "./components/TaskBar.tsx";
 
 import {LastFmPlaying} from "./components/LastFmPlaying.tsx";
 import {AboutModal} from "./components/AboutModal.tsx";
-import {Clickable, ProgramIcon, ProgramIcons} from "./components/ProgramIcon.tsx";
+import {Clickable, IconName, ProgramIcon, ProgramIcons} from "./components/ProgramIcon.tsx";
 import {ProjectExplorer} from "./components/ProjectExplorer.tsx";
 import {ReactElement, useState} from "react";
 import {Notepad} from "./components/Notepad.tsx";
 import Filler from "./components/projects/Filler.tsx";
+
+import "./App.css"
 
 const IconAboutMe = Clickable(Winhlp324000);
 const IconMusic = Clickable(CdMusic);
@@ -34,15 +36,15 @@ function App() {
             <ProgramIcons>
                 <ProgramIcon>
                     <IconAboutMe variant={"32x32_4"} onClick={() => setAboutClosed(false)}/>
-                    <span>About me</span>
+                    <IconName>About me</IconName>
                 </ProgramIcon>
                 <ProgramIcon>
                     <IconMusic variant={"32x32_4"} style={{marginLeft: 4}} onClick={() => setLastFmClosed(false)}/>
-                    <span>Music</span>
+                    <IconName>Music</IconName>
                 </ProgramIcon>
                 <ProgramIcon>
                     <IconFileExplorer variant={"32x32_4"} onClick={() => setProjectExplorerClosed(false)} />
-                    <span>Projects</span>
+                    <IconName>Projects</IconName>
                 </ProgramIcon>
             </ProgramIcons>
 

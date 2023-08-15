@@ -1,0 +1,10 @@
+body {
+    background-image: url("/wallpaper.png");
+    background-size: cover;
+}
+
+@media(max-width: 800px) {
+    body {
+        background-size: auto;
+    }
+}

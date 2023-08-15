@@ -3,6 +3,7 @@ import {Winhlp324000} from "@react95/icons";
 
 import styled from "styled-components";
 import React from "react";
+import {ExternLink} from "./Notepad.tsx";
 
 const AboutBox = styled.div`
   display: flex;
@@ -60,7 +61,7 @@ export const AboutModal: React.FC<AboutProps> = ({ close }) => {
     return (
         <Modal
             closeModal={close}
-            width="400" height="390"
+            width="380" height="405"
             buttons={[{
                 value: "Ok",
                 onClick: () => close()
@@ -71,14 +72,14 @@ export const AboutModal: React.FC<AboutProps> = ({ close }) => {
         >
             <AboutBox>
                 <AboutAvatarBox>
-                    <Avatar src={"https://cdn.discordapp.com/avatars/381827687775207424/a3d4fa5d954add61b8a31146a217dc15.webp"} alt={"my pfp :3"} size={100} />
+                    <Avatar src={"https://cdn.discordapp.com/avatars/381827687775207424/a3d4fa5d954add61b8a31146a217dc15.webp?size=80"} alt={"my pfp :3"} size={80} />
                     <AboutHeader>
-                        <h2>hi im maxus and i like coding</h2>
-                        <LargeFontSpan>you can find most of my projects on my <a href={"https://github.com/Maxuss"} target={"_blank"}>github</a></LargeFontSpan>
+                        <h2>hi, im maxus and i like coding</h2>
+                        <LargeFontSpan>check out my <ExternLink href={"https://github.com/Maxuss"} desc={"github"} /></LargeFontSpan>
                     </AboutHeader>
                 </AboutAvatarBox>
                 <AboutBody>
-                    <LargeFontSpan>here is how effective i am in my favorite languages:</LargeFontSpan>
+                    <LargeFontSpan>here are my favorite languages and my (probably inaccurate) proficiency in them:</LargeFontSpan>
                     <LanguageProgressBar language={"Java"} percentage={79} />
                     <LanguageProgressBar language={"Kotlin"} percentage={76} />
                     <LanguageProgressBar language={"Rust"} percentage={68} />
