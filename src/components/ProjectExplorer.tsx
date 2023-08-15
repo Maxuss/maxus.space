@@ -18,6 +18,8 @@ import PicoLimbo from "./projects/PicoLimbo.tsx";
 import ResourcepackD from "./projects/ResourcepackD.tsx";
 import SkyblockD from "./projects/SkyblockD.tsx";
 import DnevnikRust from "./projects/DnevnikRust.tsx";
+import ConduitLang from "./projects/ConduitLang.tsx";
+import ConductLang from "./projects/ConductLang.tsx";
 
 function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
     return [
@@ -109,6 +111,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <Files />,
                     id: 0,
                     onClick() {
+                        changeNotepadPage(<ConduitLang />)
                     }
                 },
                 {
@@ -116,7 +119,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <Files />,
                     id: 1,
                     onClick() {
-
+                        changeNotepadPage(<ConductLang />)
                     }
                 }
             ]
