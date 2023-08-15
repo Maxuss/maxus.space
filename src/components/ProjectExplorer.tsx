@@ -16,6 +16,7 @@ import SharpFunction from "./projects/SharpFunction.tsx";
 import LobsterMessage from "./projects/LobsterMessage.tsx";
 import PicoLimbo from "./projects/PicoLimbo.tsx";
 import ResourcepackD from "./projects/ResourcepackD.tsx";
+import SkyblockD from "./projects/SkyblockD.tsx";
 
 function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
     return [{
@@ -47,9 +48,17 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                 }
             },
             {
+                label: "SkyblockD.java",
+                icon: <FileCorrupted />,
+                id: 1,
+                onClick() {
+                    changeNotepadPage(<SkyblockD />)
+                }
+            },
+            {
                 label: "Macrocosm.kt",
                 icon: <FilePen />,
-                id: 1,
+                id: 2,
                 onClick() {
                     changeNotepadPage(<Macrocosm />)
                 }
@@ -57,7 +66,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
             {
                 label: "SharpFunction.cs",
                 icon: <FileCorrupted />,
-                id: 2,
+                id: 3,
                 onClick() {
                     changeNotepadPage(<SharpFunction />)
                 }
@@ -65,7 +74,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
             {
                 label: "lobstermessage.rs",
                 icon: <FileText />,
-                id: 3,
+                id: 4,
                 onClick() {
                     changeNotepadPage(<LobsterMessage />)
                 }
@@ -73,7 +82,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
             {
                 label: "picolimbo.rs",
                 icon: <FileTransfer />,
-                id: 4,
+                id: 5,
                 onClick() {
                     changeNotepadPage(<PicoLimbo />)
                 }
@@ -81,7 +90,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
             {
                 label: "resourcepackd.rs",
                 icon: <FileFont />,
-                id: 5,
+                id: 6,
                 onClick() {
                     changeNotepadPage(<ResourcepackD />)
                 }
