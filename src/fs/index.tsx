@@ -1,7 +1,8 @@
 import {ReactElement} from "react";
 import {
+    Brush,
     Computer4,
-    Defrag2,
+    Defrag2, FileIcons,
     FileText,
     Folder, FolderFile,
     RecycleEmpty,
@@ -19,7 +20,7 @@ export interface File {
     path: string,
     display: string,
     icon: ReactElement,
-    contents: ReactElement,
+    contents: ReactElement | string,
     ty: FileType
 }
 
@@ -60,7 +61,21 @@ export const FileSystem: Directory = {
                     path: "C:/Photos",
                     display: "Photos",
                     icon: <Folder variant={"16x16_4"} />,
-                    elements: [ ]
+                    elements: [
+                        {
+                            path: "C:/Photos/Icons",
+                            display: "Icons",
+                            icon: <Folder variant={"16x16_4"} />,
+                            elements: iconList("C:/Photos/Icons", ["csharp.svg", "java.svg", "kotlin.svg", "nextjs.svg", "react.svg", "rust.svg", "typescript.svg", "vite.svg"])
+                        },
+                        {
+                            path: "C:/Photos/ralsei.jpg",
+                            display: "ralsei.jpg",
+                            icon: <Brush variant={"32x32_4"} style={{ width: 16, height: 16 }}/>,
+                            contents: "/images/ralsei1.jpg",
+                            ty: "image"
+                        }
+                    ]
                 },
                 {
                     path: "C:/Videos",
@@ -77,6 +92,18 @@ export const FileSystem: Directory = {
             ]
         }
     ]
+}
+
+function iconList(parentDir: string, files: string[]): File[] {
+    return files.map(each => {
+        return {
+            path: `${parentDir}/${each}`,
+            display: each,
+            icon: <FileIcons variant={"32x32_4"} style={{width: 16, height: 16}} />,
+            contents: `/${each}`,
+            ty: "image"
+        }
+    })
 }
 
 function mapDirEntry(setActiveFolder: (dir: Directory) => void, dir: Directory, idx: number): NodeProps {

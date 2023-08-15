@@ -11,6 +11,7 @@ import Filler from "./components/projects/Filler.tsx";
 
 import "./App.css"
 import {FileExplorer} from "./components/FileExplorer.tsx";
+import {ImageViewer} from "./components/fs/ImageViewer.tsx";
 
 const IconAboutMe = Clickable(Winhlp324000);
 const IconMusic = Clickable(CdMusic);
@@ -24,6 +25,8 @@ function App() {
     const [isLastFmClosed, setLastFmClosed] = useState(false);
     const [notepadComponent, setNotepadComponent] = useState(<Filler />);
     const [isExplorerClosed, setExplorerClosed] = useState(true);
+    const [isImageViewerClosed, setImageViewerClosed] = useState(true);
+    const [imageViewerImage, setImageViewerImage] = useState("/vite.svg");
 
     const isMobile = window.innerWidth < 850;
 
@@ -31,6 +34,12 @@ function App() {
         setNotepadComponent(component);
         if(isNotepadClosed)
             setNotepadClosed(false)
+    }
+
+    const changeImageViewerImage = (newSrc: string) => {
+        setImageViewerImage(newSrc);
+        if(isImageViewerClosed)
+            setImageViewerClosed(false)
     }
 
     return (
@@ -63,7 +72,9 @@ function App() {
 
             {!isProjectExplorerClosed && <ProjectExplorer changeNotepadPage={changeNotepadPage} closeProjectExplorer={() => setProjectExplorerClosed(true)} />}
 
-            {!isExplorerClosed && <FileExplorer openNotepad={changeNotepadPage} isMobile={isMobile} close={() => setExplorerClosed(true)} />}
+            {!isExplorerClosed && <FileExplorer openImageViewer={changeImageViewerImage} openNotepad={changeNotepadPage} isMobile={isMobile} close={() => setExplorerClosed(true)} />}
+
+            {!isImageViewerClosed && <ImageViewer src={imageViewerImage} close={() => setImageViewerClosed(true)} />}
 
             <Bar />
         </div>
