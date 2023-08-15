@@ -16,7 +16,7 @@ export default function MaxusSpace() {
             I have always liked old system designs, due to how simplistic and functional they are.
         </p>
         <p>
-            Big thanks to the <ExternLink href={"https://github.com/React95"} desc={"React95"} /> development team for making such a beautiful library!
+            Big thanks to the <ExternLink href={"https://github.com/React95/React95"} desc={"React95"} /> development team for making such a beautiful library!
         </p>
     </DescriptionContainer>)
 }

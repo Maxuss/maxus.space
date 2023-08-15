@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react";
-import {Frame, Modal, Tooltip} from "@react95/core";
+import {Frame, List, Modal, Tooltip} from "@react95/core";
 import {Notepad1, WebLink} from "@react95/icons";
 import styled from "styled-components";
 
@@ -95,6 +95,48 @@ export const Notepad: React.FC<NotepadProps> = ({ openComponent, isMobile, close
             title={`Notepad`}
             closeModal={closeNotepad}
             buttons={[{ value: "Close", onClick: closeNotepad }]}
+            menu={[
+                {
+                    name: "File",
+                    list: (
+                        <List>
+                            <List.Item>
+                                Close
+                            </List.Item>
+                        </List>
+                    )
+                },
+                {
+                    name: "Edit",
+                    list: (
+                        <List>
+                            <List.Item>
+                                Close
+                            </List.Item>
+                        </List>
+                    )
+                },
+                {
+                    name: "Format",
+                    list: (
+                        <List>
+                            <List.Item>
+                                Close
+                            </List.Item>
+                        </List>
+                    )
+                },
+                {
+                    name: "Help",
+                    list: (
+                        <List>
+                            <List.Item>
+                                Close
+                            </List.Item>
+                        </List>
+                    )
+                }
+            ]}
             style={{
                 left: isMobile ? '5%' : '50%',
                 top: isMobile ? '3%' : '15%',
