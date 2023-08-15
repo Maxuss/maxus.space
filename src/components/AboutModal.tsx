@@ -71,7 +71,7 @@ export const AboutModal: React.FC<AboutProps> = ({ close }) => {
         >
             <AboutBox>
                 <AboutAvatarBox>
-                    <Avatar src={"https://github.com/Maxuss.png"} alt={"my pfp :3"} size={100} />
+                    <Avatar src={"https://cdn.discordapp.com/avatars/381827687775207424/a3d4fa5d954add61b8a31146a217dc15.webp"} alt={"my pfp :3"} size={100} />
                     <AboutHeader>
                         <h2>hi im maxus and i like coding</h2>
                         <LargeFontSpan>you can find most of my projects on my <a href={"https://github.com/Maxuss"} target={"_blank"}>github</a></LargeFontSpan>

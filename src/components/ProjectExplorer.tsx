@@ -17,109 +17,126 @@ import LobsterMessage from "./projects/LobsterMessage.tsx";
 import PicoLimbo from "./projects/PicoLimbo.tsx";
 import ResourcepackD from "./projects/ResourcepackD.tsx";
 import SkyblockD from "./projects/SkyblockD.tsx";
+import DnevnikRust from "./projects/DnevnikRust.tsx";
 
 function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
-    return [{
-        label: "AI",
-        icon: <Folder />,
-        id: 0,
-        children: [
-            {
-                label: "ChatGPT.rs",
-                icon: <FilePen />,
-                id: 0,
-                onClick() {
-                    changeNotepadPage(<ChatGptRs />)
+    return [
+        {
+            label: "AI",
+            icon: <Folder />,
+            id: 0,
+            children: [
+                {
+                    label: "ChatGPT.rs",
+                    icon: <FilePen />,
+                    id: 0,
+                    onClick() {
+                        changeNotepadPage(<ChatGptRs />)
+                    }
+                },
+            ]
+        },
+        {
+            label: "Minecraft",
+            icon: <FolderShared />,
+            id: 1,
+            children: [
+                {
+                    label: "Flare.java",
+                    icon: <FileFind />,
+                    id: 0,
+                    onClick() {
+                        changeNotepadPage(<Flare />)
+                    }
+                },
+                {
+                    label: "SkyblockD.java",
+                    icon: <FileCorrupted />,
+                    id: 1,
+                    onClick() {
+                        changeNotepadPage(<SkyblockD />)
+                    }
+                },
+                {
+                    label: "Macrocosm.kt",
+                    icon: <FilePen />,
+                    id: 2,
+                    onClick() {
+                        changeNotepadPage(<Macrocosm />)
+                    }
+                },
+                {
+                    label: "SharpFunction.cs",
+                    icon: <FileCorrupted />,
+                    id: 3,
+                    onClick() {
+                        changeNotepadPage(<SharpFunction />)
+                    }
+                },
+                {
+                    label: "lobstermessage.rs",
+                    icon: <FileText />,
+                    id: 4,
+                    onClick() {
+                        changeNotepadPage(<LobsterMessage />)
+                    }
+                },
+                {
+                    label: "picolimbo.rs",
+                    icon: <FileTransfer />,
+                    id: 5,
+                    onClick() {
+                        changeNotepadPage(<PicoLimbo />)
+                    }
+                },
+                {
+                    label: "resourcepackd.rs",
+                    icon: <FileFont />,
+                    id: 6,
+                    onClick() {
+                        changeNotepadPage(<ResourcepackD />)
+                    }
                 }
-            },
-        ]
-    },
-    {
-        label: "Minecraft",
-        icon: <FolderShared />,
-        id: 1,
-        children: [
-            {
-                label: "Flare.java",
-                icon: <FileFind />,
-                id: 0,
-                onClick() {
-                    changeNotepadPage(<Flare />)
-                }
-            },
-            {
-                label: "SkyblockD.java",
-                icon: <FileCorrupted />,
-                id: 1,
-                onClick() {
-                    changeNotepadPage(<SkyblockD />)
-                }
-            },
-            {
-                label: "Macrocosm.kt",
-                icon: <FilePen />,
-                id: 2,
-                onClick() {
-                    changeNotepadPage(<Macrocosm />)
-                }
-            },
-            {
-                label: "SharpFunction.cs",
-                icon: <FileCorrupted />,
-                id: 3,
-                onClick() {
-                    changeNotepadPage(<SharpFunction />)
-                }
-            },
-            {
-                label: "lobstermessage.rs",
-                icon: <FileText />,
-                id: 4,
-                onClick() {
-                    changeNotepadPage(<LobsterMessage />)
-                }
-            },
-            {
-                label: "picolimbo.rs",
-                icon: <FileTransfer />,
-                id: 5,
-                onClick() {
-                    changeNotepadPage(<PicoLimbo />)
-                }
-            },
-            {
-                label: "resourcepackd.rs",
-                icon: <FileFont />,
-                id: 6,
-                onClick() {
-                    changeNotepadPage(<ResourcepackD />)
-                }
-            }
-        ]
-    },
-    {
-        label: "Language Development",
-        icon: <Folder />,
-        id: 2,
-        children: [
-            {
-                label: "Conduit language (unfinished).rs",
-                icon: <Files />,
-                id: 0,
-                onClick() {
-                }
-            },
-            {
-                label: "Conduct language (unfinished).rs",
-                icon: <Files />,
-                id: 1,
-                onClick() {
+            ]
+        },
+        {
+            label: "Language Development",
+            icon: <Folder />,
+            id: 2,
+            children: [
+                {
+                    label: "Conduit language (unfinished).rs",
+                    icon: <Files />,
+                    id: 0,
+                    onClick() {
+                    }
+                },
+                {
+                    label: "Conduct language (unfinished).rs",
+                    icon: <Files />,
+                    id: 1,
+                    onClick() {
 
+                    }
                 }
-            }
-        ]
-    }
-]
+            ]
+        },
+        {
+            label: "Other",
+            icon: <Folder />,
+            id: 3,
+            children: [
+                {
+                    label: "dnevnik-mos.rs",
+                    icon: <FileText />,
+                    id: 0,
+                    onClick() {
+                        changeNotepadPage(<DnevnikRust />)
+                    }
+                }
+            ]
+        }
+    ]
 }
 
 interface ProjectExplorerProps {
