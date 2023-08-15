@@ -3,7 +3,7 @@ import {Frame, Modal, Tree} from "@react95/core";
 import {
     FileCorrupted, FileFind,
     FilePen,
-    Files,
+    Files, FileText,
     Folder,
     FolderFile, FolderShared
 } from "@react95/icons";
@@ -13,6 +13,7 @@ import ChatGptRs from "./projects/ChatGptRs.tsx";
 import Flare from "./projects/Flare.tsx";
 import Macrocosm from "./projects/Macrocosm.tsx";
 import SharpFunction from "./projects/SharpFunction.tsx";
+import LobsterMessage from "./projects/LobsterMessage.tsx";
 
 function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
     return [{
@@ -57,6 +58,14 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                 id: 2,
                 onClick() {
                     changeNotepadPage(<SharpFunction />)
+                }
+            },
+            {
+                label: "lobstermessage.rs",
+                icon: <FileText />,
+                id: 3,
+                onClick() {
+                    changeNotepadPage(<LobsterMessage />)
                 }
             }
         ]
