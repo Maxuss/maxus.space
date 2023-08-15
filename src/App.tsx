@@ -3,15 +3,15 @@ import {Bar} from "./components/TaskBar.tsx";
 
 import {LastFmPlaying} from "./components/LastFmPlaying.tsx";
 import {AboutModal} from "./components/AboutModal.tsx";
-import {ClickableIcon, ProgramIcon, ProgramIcons} from "./components/ProgramIcon.tsx";
+import {Clickable, ProgramIcon, ProgramIcons} from "./components/ProgramIcon.tsx";
 import {ProjectExplorer} from "./components/ProjectExplorer.tsx";
 import {ReactElement, useState} from "react";
 import {Notepad} from "./components/Notepad.tsx";
 import Filler from "./components/projects/Filler.tsx";
 
-const IconAboutMe = ClickableIcon(Winhlp324000);
-const IconMusic = ClickableIcon(CdMusic);
-const IconFileExplorer = ClickableIcon(FolderFile);
+const IconAboutMe = Clickable(Winhlp324000);
+const IconMusic = Clickable(CdMusic);
+const IconFileExplorer = Clickable(FolderFile);
 
 function App() {
     const [isNotepadClosed, setNotepadClosed] = useState(true);

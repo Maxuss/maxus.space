@@ -10,6 +10,8 @@ import {
 import {NodeProps} from "@react95/core/@types/Tree/Node";
 import ChatGptRs from "./projects/ChatGptRs.tsx";
 import Flare from "./projects/Flare.tsx";
+import Macrocosm from "./projects/Macrocosm.tsx";
+import {Clickable} from "./ProgramIcon.tsx";
 
 function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
     return [{
@@ -45,6 +47,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                 icon: <FilePen />,
                 id: 1,
                 onClick() {
+                    changeNotepadPage(<Macrocosm />)
                 }
             },
             {
@@ -86,6 +89,8 @@ interface ProjectExplorerProps {
     closeProjectExplorer: () => void
 }
 
+const ClickableTree = Clickable(Tree);
+
 export const ProjectExplorer: React.FC<ProjectExplorerProps> = ({ changeNotepadPage, closeProjectExplorer }) => {
     return (
         <Modal
@@ -105,7 +110,7 @@ export const ProjectExplorer: React.FC<ProjectExplorerProps> = ({ changeNotepadP
                     maxHeight: "60vh",
                 }}
             >
-                <Tree data={treeNodes(changeNotepadPage)}/>
+                <ClickableTree data={treeNodes(changeNotepadPage)}/>
             </Frame>
         </Modal>
     )
