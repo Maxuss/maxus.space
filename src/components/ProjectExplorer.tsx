@@ -3,7 +3,7 @@ import {Frame, Modal, Tree} from "@react95/core";
 import {
     FileCorrupted, FileFind,
     FilePen,
-    Files, FileText,
+    Files, FileText, FileTransfer,
     Folder,
     FolderFile, FolderShared
 } from "@react95/icons";
@@ -14,6 +14,7 @@ import Flare from "./projects/Flare.tsx";
 import Macrocosm from "./projects/Macrocosm.tsx";
 import SharpFunction from "./projects/SharpFunction.tsx";
 import LobsterMessage from "./projects/LobsterMessage.tsx";
+import PicoLimbo from "./projects/PicoLimbo.tsx";
 
 function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
     return [{
@@ -66,6 +67,14 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                 id: 3,
                 onClick() {
                     changeNotepadPage(<LobsterMessage />)
+                }
+            },
+            {
+                label: "picolimbo.rs",
+                icon: <FileTransfer />,
+                id: 4,
+                onClick() {
+                    changeNotepadPage(<PicoLimbo />)
                 }
             }
         ]
