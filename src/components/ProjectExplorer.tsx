@@ -22,6 +22,7 @@ import DnevnikRust from "./projects/DnevnikRust.tsx";
 import ConduitLang from "./projects/ConduitLang.tsx";
 import ConductLang from "./projects/ConductLang.tsx";
 import MaxusSpace from "./projects/MaxusSpace.tsx";
+import TerminalMaxusSpace from "./projects/TerminalMaxusSpace.tsx";
 
 function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
     return [
@@ -144,7 +145,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                     icon: <BlankScreen100 variant={"16x16_4"} />,
                     id: 1,
                     onClick() {
-
+                        changeNotepadPage(<TerminalMaxusSpace />)
                     }
                 }
             ]
