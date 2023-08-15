@@ -1,4 +1,5 @@
 import {useState} from "react";
+import styled from "styled-components";
 
 export function useFetchOneshot(link: string): object | undefined {
     const [valueState, setValue] = useState(undefined);
@@ -14,3 +15,11 @@ export function useFetchOneshot(link: string): object | undefined {
 
     return valueState
 }
+
+export const Unselectable = styled.label`
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+`;

@@ -1,4 +1,4 @@
-import {CdMusic, FolderFile, Winhlp324000} from "@react95/icons";
+import {CdMusic, FolderExe2, FolderFile, Winhlp324000} from "@react95/icons";
 import {Bar} from "./components/TaskBar.tsx";
 
 import {LastFmPlaying} from "./components/LastFmPlaying.tsx";
@@ -10,17 +10,20 @@ import {Notepad} from "./components/Notepad.tsx";
 import Filler from "./components/projects/Filler.tsx";
 
 import "./App.css"
+import {FileExplorer} from "./components/FileExplorer.tsx";
 
 const IconAboutMe = Clickable(Winhlp324000);
 const IconMusic = Clickable(CdMusic);
 const IconFileExplorer = Clickable(FolderFile);
+const IconProjectExplorer = Clickable(FolderExe2)
 
 function App() {
     const [isNotepadClosed, setNotepadClosed] = useState(true);
     const [isProjectExplorerClosed, setProjectExplorerClosed] = useState(true);
     const [isAboutClosed, setAboutClosed] = useState(false);
-    const [isLastFmClosed, setLastFmClosed] = useState(true);
+    const [isLastFmClosed, setLastFmClosed] = useState(false);
     const [notepadComponent, setNotepadComponent] = useState(<Filler />);
+    const [isExplorerClosed, setExplorerClosed] = useState(true);
 
     const isMobile = window.innerWidth < 850;
 
@@ -43,8 +46,12 @@ function App() {
                     <IconName>Music</IconName>
                 </ProgramIcon>
                 <ProgramIcon>
-                    <IconFileExplorer variant={"32x32_4"} onClick={() => setProjectExplorerClosed(false)} />
+                    <IconProjectExplorer variant={"32x32_4"} onClick={() => setProjectExplorerClosed(false)} />
                     <IconName>Projects</IconName>
+                </ProgramIcon>
+                <ProgramIcon>
+                    <IconFileExplorer variant={"32x32_4"} onClick={() => setExplorerClosed(false)} />
+                    <IconName>Explorer</IconName>
                 </ProgramIcon>
             </ProgramIcons>
 
@@ -55,6 +62,8 @@ function App() {
             {!isNotepadClosed && <Notepad openComponent={notepadComponent} isMobile={isMobile} closeNotepad={() => setNotepadClosed(true)} />}
 
             {!isProjectExplorerClosed && <ProjectExplorer changeNotepadPage={changeNotepadPage} closeProjectExplorer={() => setProjectExplorerClosed(true)} />}
+
+            {!isExplorerClosed && <FileExplorer openNotepad={changeNotepadPage} isMobile={isMobile} close={() => setExplorerClosed(true)} />}
 
             <Bar />
         </div>
