@@ -1,11 +1,12 @@
 import React, {ReactElement} from "react";
 import {Frame, Modal, Tree} from "@react95/core";
 import {
+    BlankScreen100,
     FileCorrupted, FileFind, FileFont,
     FilePen,
     Files, FileText, FileTransfer,
     Folder,
-    FolderFile, FolderShared
+    FolderFile, FolderShared, Mshtml32528
 } from "@react95/icons";
 import {NodeProps} from "@react95/core/@types/Tree/Node";
 import {Clickable} from "./ProgramIcon.tsx";
@@ -20,6 +21,7 @@ import SkyblockD from "./projects/SkyblockD.tsx";
 import DnevnikRust from "./projects/DnevnikRust.tsx";
 import ConduitLang from "./projects/ConduitLang.tsx";
 import ConductLang from "./projects/ConductLang.tsx";
+import MaxusSpace from "./projects/MaxusSpace.tsx";
 
 function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
     return [
@@ -125,9 +127,32 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
             ]
         },
         {
-            label: "Other",
+            label: "Web",
             icon: <Folder />,
             id: 3,
+            children: [
+                {
+                    label: "maxus.space",
+                    icon: <Mshtml32528 variant={"16x16_4"}/>,
+                    id: 0,
+                    onClick() {
+                        changeNotepadPage(<MaxusSpace />)
+                    }
+                },
+                {
+                    label: "terminal.maxus.space",
+                    icon: <BlankScreen100 variant={"16x16_4"} />,
+                    id: 1,
+                    onClick() {
+
+                    }
+                }
+            ]
+        },
+        {
+            label: "Other",
+            icon: <Folder />,
+            id: 4,
             children: [
                 {
                     label: "dnevnik-mos.rs",
