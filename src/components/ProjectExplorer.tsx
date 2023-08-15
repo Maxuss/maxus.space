@@ -8,10 +8,11 @@ import {
     FolderFile, FolderShared
 } from "@react95/icons";
 import {NodeProps} from "@react95/core/@types/Tree/Node";
+import {Clickable} from "./ProgramIcon.tsx";
 import ChatGptRs from "./projects/ChatGptRs.tsx";
 import Flare from "./projects/Flare.tsx";
 import Macrocosm from "./projects/Macrocosm.tsx";
-import {Clickable} from "./ProgramIcon.tsx";
+import SharpFunction from "./projects/SharpFunction.tsx";
 
 function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
     return [{
@@ -55,6 +56,7 @@ function treeNodes(changeNotepadPage: (to: ReactElement) => void): NodeProps[] {
                 icon: <FileCorrupted />,
                 id: 2,
                 onClick() {
+                    changeNotepadPage(<SharpFunction />)
                 }
             }
         ]
