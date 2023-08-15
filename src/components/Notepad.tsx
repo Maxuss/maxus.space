@@ -150,6 +150,7 @@ export const Notepad: React.FC<NotepadProps> = ({ openComponent, isMobile, close
                 style={{
                     overflowY: "auto",
                     maxHeight: "60vh",
+                    fontSize: isMobile ? 12 : 14
                 }}
                 children={[openComponent]}
             />

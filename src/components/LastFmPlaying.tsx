@@ -65,7 +65,7 @@ export const LastFmPlaying: React.FC<LastFmProps> = ({ close }) => {
 
     return (<Modal
             closeModal={close}
-            title={isCurrentlyListening() ? "Currently listening to" : "Last listened to"}
+            title={isCurrentlyListening() ? "I am currently listening to" : "I was last listening to"}
             width="300"
             height={isCurrentlyListening() ? "100" : "120"}
             defaultPosition={{x: 35, y: 390}}
