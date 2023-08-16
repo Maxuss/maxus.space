@@ -5,7 +5,7 @@ import {
     Computer4,
     Defrag2, FileIcons,
     FileText,
-    Folder, FolderFile,
+    Folder, FolderFile, Progman10,
     RecycleEmpty,
 } from "@react95/icons";
 import {NodeProps} from "@react95/core/@types/Tree/Node";
@@ -93,6 +93,20 @@ export const FileSystem: Directory = {
                     ]
                 },
                 {
+                    path: "C:/Games",
+                    display: "Games",
+                    icon: <Folder variant={"16x16_4"} />,
+                    elements: [
+                        {
+                            path: "C:/Games/DOOM.exe",
+                            display: "DOOM.EXE",
+                            icon: <Progman10 variant={"32x32_4"} style={{width: 16, height: 16}} />,
+                            ty: "game",
+                            contents: "/dos-bundles/doom.jsdos"
+                        }
+                    ]
+                },
+                {
                     path: "C:/Trash",
                     display: "Recycled",
                     icon: <RecycleEmpty variant={"16x16_4"} />,
@@ -135,5 +149,5 @@ export function fileSystemTree(setActiveFolder: (dir: Directory) => void): NodeP
     return [mapDirEntry(setActiveFolder, FileSystem, 0)]
 }
 
-export type FileType = "text" | "image" | "video";
+export type FileType = "text" | "image" | "video" | "game";
 

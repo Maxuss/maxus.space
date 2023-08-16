@@ -34,6 +34,7 @@ function App() {
     const [mediaViewerFile, setMediaViewerFile] = useState("/videos/ralsei2.mp4");
 
     const [isDosClosed, setDosClosed] = useState(true);
+    const [dosApp, setDosApp] = useState("/dos-bundles/doom.jsdos");
 
     const isMobile = window.innerWidth < 850;
 
@@ -56,6 +57,12 @@ function App() {
             setMediaViewerClosed(false)
     }
 
+    const changeDosApp = (newSrc: string) => {
+        setDosApp(newSrc);
+        if(isDosClosed)
+            setDosClosed(false)
+    }
+
     return (
     <>
         <div className="container">
@@ -76,11 +83,6 @@ function App() {
                     <IconFileExplorer variant={"32x32_4"} onClick={() => setExplorerClosed(false)} />
                     <IconName>Explorer</IconName>
                 </ProgramIcon>
-                <ProgramIcon>
-                    <IconFileExplorer variant={"32x32_4"} onClick={() => setDosClosed(false)} />
-                    <IconName>DOS</IconName>
-                </ProgramIcon>
-
             </ProgramIcons>
 
             {!isAboutClosed && <AboutModal close={() => setAboutClosed(true)} />}
@@ -91,13 +93,13 @@ function App() {
 
             {!isProjectExplorerClosed && <ProjectExplorer changeNotepadPage={changeNotepadPage} closeProjectExplorer={() => setProjectExplorerClosed(true)} />}
 
-            {!isExplorerClosed && <FileExplorer openMediaPlayer={changeMediaPlayerFile} openImageViewer={changeImageViewerImage} openNotepad={changeNotepadPage} isMobile={isMobile} close={() => setExplorerClosed(true)} />}
+            {!isExplorerClosed && <FileExplorer openDos={changeDosApp} openMediaPlayer={changeMediaPlayerFile} openImageViewer={changeImageViewerImage} openNotepad={changeNotepadPage} isMobile={isMobile} close={() => setExplorerClosed(true)} />}
 
             {!isImageViewerClosed && <ImageViewer isMobile={isMobile} src={imageViewerImage} close={() => setImageViewerClosed(true)} />}
 
             {!isMediaViewerClosed && <MediaPlayer isMobile={isMobile} src={mediaViewerFile} close={() => setMediaViewerClosed(true)} />}
 
-            {!isDosClosed && <DosPlayer isMobile={isMobile} close={() => setDosClosed(true)} bundleUrl={"/dos-bundles/doom.jsdos"} />}
+            {!isDosClosed && <DosPlayer isMobile={isMobile} close={() => setDosClosed(true)} bundleUrl={dosApp} />}
             <Bar />
         </div>
     </>

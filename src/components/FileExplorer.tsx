@@ -20,10 +20,11 @@ export interface ExplorerProps {
     isMobile: boolean,
     openNotepad: (name: string, ele: ReactElement) => void,
     openImageViewer: (src: string) => void,
-    openMediaPlayer: (src: string) => void
+    openMediaPlayer: (src: string) => void,
+    openDos: (src: string) => void
 }
 
-export const FileExplorer: React.FC<ExplorerProps> = ({ close, openNotepad, openImageViewer, openMediaPlayer }) => {
+export const FileExplorer: React.FC<ExplorerProps> = ({ close, openNotepad, openImageViewer, openMediaPlayer, openDos }) => {
     const [activeDirectory, setActiveDirectory] = useState(FileSystem)
 
     const openFile = (ty: FileType, name: string, contents: ReactElement | string) => {
@@ -31,6 +32,7 @@ export const FileExplorer: React.FC<ExplorerProps> = ({ close, openNotepad, open
             case "text": return openNotepad(name, contents as ReactElement)
             case "image": return openImageViewer(contents as string)
             case "video": return openMediaPlayer(contents as string)
+            case "game": return openDos(contents as string)
         }
     }
 
