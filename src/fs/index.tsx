@@ -3,9 +3,12 @@ import {
     Amovie2,
     Brush,
     Computer4,
-    Defrag2, FileIcons,
+    Defrag2,
+    FileIcons,
     FileText,
-    Folder, FolderFile, Progman10,
+    Folder,
+    FolderFile,
+    Progman10,
     RecycleEmpty,
 } from "@react95/icons";
 import {NodeProps} from "@react95/core/@types/Tree/Node";
@@ -30,29 +33,29 @@ export type FileEntry = File | Directory;
 export const FileSystem: Directory = {
     path: "/",
     display: "My Computer",
-    icon: <Computer4 variant={"16x16_4"} />,
+    icon: <Computer4 variant={"16x16_4"}/>,
     elements: [
         {
             path: "C:/",
             display: "MAXUS (C:)",
-            icon: <Defrag2 variant={"16x16_4"} />,
+            icon: <Defrag2 variant={"16x16_4"}/>,
             elements: [
                 {
                     path: "C:/Documents",
                     display: "My Documents",
-                    icon: <FolderFile variant={"16x16_4"} />,
+                    icon: <FolderFile variant={"16x16_4"}/>,
                     elements: [
                         {
                             path: "C:/Documents/Example.txt",
                             display: "Example.txt",
-                            icon: <FileText variant={"16x16_4"} />,
+                            icon: <FileText variant={"16x16_4"}/>,
                             contents: <div>hello, world</div>,
                             ty: "text"
                         },
                         {
                             path: "C:/Documents/Another.txt",
                             display: "Another.txt",
-                            icon: <FileText variant={"16x16_4"} />,
+                            icon: <FileText variant={"16x16_4"}/>,
                             contents: <div>another text</div>,
                             ty: "text"
                         }
@@ -61,18 +64,18 @@ export const FileSystem: Directory = {
                 {
                     path: "C:/Photos",
                     display: "Photos",
-                    icon: <Folder variant={"16x16_4"} />,
+                    icon: <Folder variant={"16x16_4"}/>,
                     elements: [
                         {
                             path: "C:/Photos/Icons",
                             display: "Icons",
-                            icon: <Folder variant={"16x16_4"} />,
+                            icon: <Folder variant={"16x16_4"}/>,
                             elements: iconList("C:/Photos/Icons", ["csharp.svg", "java.svg", "kotlin.svg", "nextjs.svg", "react.svg", "rust.svg", "typescript.svg", "vite.svg"])
                         },
                         {
                             path: "C:/Photos/ralsei.jpg",
                             display: "ralsei.jpg",
-                            icon: <Brush variant={"32x32_4"} style={{ width: 16, height: 16 }}/>,
+                            icon: <Brush variant={"32x32_4"} style={{width: 16, height: 16}}/>,
                             contents: "/images/ralsei1.jpg",
                             ty: "image"
                         }
@@ -81,12 +84,12 @@ export const FileSystem: Directory = {
                 {
                     path: "C:/Videos",
                     display: "Videos",
-                    icon: <Folder variant={"16x16_4"} />,
+                    icon: <Folder variant={"16x16_4"}/>,
                     elements: [
                         {
                             path: "C:/Videos/ralsei.mp4",
                             display: "ralsei.mp4",
-                            icon: <Amovie2 variant={"16x16_4"} />,
+                            icon: <Amovie2 variant={"16x16_4"}/>,
                             ty: "video",
                             contents: "/videos/ralsei2.mp4"
                         }
@@ -95,12 +98,12 @@ export const FileSystem: Directory = {
                 {
                     path: "C:/Games",
                     display: "Games",
-                    icon: <Folder variant={"16x16_4"} />,
+                    icon: <Folder variant={"16x16_4"}/>,
                     elements: [
                         {
                             path: "C:/Games/DOOM.exe",
                             display: "DOOM.EXE",
-                            icon: <Progman10 variant={"32x32_4"} style={{width: 16, height: 16}} />,
+                            icon: <Progman10 variant={"32x32_4"} style={{width: 16, height: 16}}/>,
                             ty: "game",
                             contents: "/dos-bundles/doom.jsdos"
                         }
@@ -109,7 +112,7 @@ export const FileSystem: Directory = {
                 {
                     path: "C:/Trash",
                     display: "Recycled",
-                    icon: <RecycleEmpty variant={"16x16_4"} />,
+                    icon: <RecycleEmpty variant={"16x16_4"}/>,
                     elements: []
                 }
             ]
@@ -122,7 +125,7 @@ function iconList(parentDir: string, files: string[]): File[] {
         return {
             path: `${parentDir}/${each}`,
             display: each,
-            icon: <FileIcons variant={"32x32_4"} style={{width: 16, height: 16}} />,
+            icon: <FileIcons variant={"32x32_4"} style={{width: 16, height: 16}}/>,
             contents: `/icons/${each}`,
             ty: "image"
         }
@@ -134,9 +137,11 @@ function mapDirEntry(setActiveFolder: (dir: Directory) => void, dir: Directory, 
         id: idx,
         label: dir.display,
         icon: dir.icon,
-        onClick() { setActiveFolder(dir) },
+        onClick() {
+            setActiveFolder(dir)
+        },
         children: dir.elements.map((each, eachIdx): NodeProps | undefined => {
-            if("elements" in each) {
+            if ("elements" in each) {
                 return mapDirEntry(setActiveFolder, each, eachIdx)
             } else {
                 return undefined

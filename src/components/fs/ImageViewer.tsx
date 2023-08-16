@@ -8,7 +8,7 @@ export interface ImageProps {
     close: () => void,
 }
 
-export const ImageViewer: React.FC<ImageProps> = ({ src, isMobile, close }) => {
+export const ImageViewer: React.FC<ImageProps> = ({src, isMobile, close}) => {
     const [imageName, setImageName] = useState("NULL.JPG")
     useEffect(() => {
         const split = src.split("/");
@@ -16,7 +16,7 @@ export const ImageViewer: React.FC<ImageProps> = ({ src, isMobile, close }) => {
     }, [src]);
 
     return (<Modal
-        icon={<Progman13 variant={"32x32_4"} />}
+        icon={<Progman13 variant={"32x32_4"}/>}
         title={`Image Viewer - ${imageName}`}
         closeModal={close}
         menu={[
@@ -49,7 +49,7 @@ export const ImageViewer: React.FC<ImageProps> = ({ src, isMobile, close }) => {
             bg="white"
             boxShadow="in"
             padding={2}
-            children={[<img src={src} style={{width: 300}} alt={`Image Viewer ${src}`} />]}
+            children={[<img src={src} style={{width: 300}} alt={`Image Viewer ${src}`}/>]}
         />
     </Modal>)
 

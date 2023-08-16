@@ -48,7 +48,7 @@ const LanguageProgressBar: React.FC<LanguageBarProps> = ({language, percentage})
     return (
         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", maxWidth: "80%"}}>
             <LargeFontSpan>{language}</LargeFontSpan>
-            <ProgressBar percent={percentage} width={200} />
+            <ProgressBar percent={percentage} width={200}/>
         </div>
     )
 }
@@ -57,7 +57,7 @@ export interface AboutProps {
     close: () => void
 }
 
-export const AboutModal: React.FC<AboutProps> = ({ close }) => {
+export const AboutModal: React.FC<AboutProps> = ({close}) => {
     return (
         <Modal
             closeModal={close}
@@ -68,27 +68,32 @@ export const AboutModal: React.FC<AboutProps> = ({ close }) => {
             }]}
             defaultPosition={{x: 50, y: 0}}
             title="About me"
-            icon={<Winhlp324000 variant="32x32_4" />}
+            icon={<Winhlp324000 variant="32x32_4"/>}
         >
             <AboutBox>
                 <AboutAvatarBox>
-                    <Avatar src={"/pfp.jpg"} alt={"my pfp :3"} size={80} />
+                    <Avatar src={"/pfp.jpg"} alt={"my pfp :3"} size={80}/>
                     <AboutHeader>
                         <h2>hi, im maxus and i like coding</h2>
-                        <LargeFontSpan>check out my <ExternLink href={"https://github.com/Maxuss"} desc={"github"} /></LargeFontSpan>
+                        <LargeFontSpan>check out my <ExternLink href={"https://github.com/Maxuss"}
+                                                                desc={"github"}/></LargeFontSpan>
                     </AboutHeader>
                 </AboutAvatarBox>
                 <AboutBody>
-                    <LargeFontSpan>here are my favorite languages and my (probably inaccurate) proficiency in them:</LargeFontSpan>
-                    <LanguageProgressBar language={"Java"} percentage={79} />
-                    <LanguageProgressBar language={"Kotlin"} percentage={76} />
-                    <LanguageProgressBar language={"Rust"} percentage={68} />
-                    <LanguageProgressBar language={"C#"} percentage={65} />
+                    <LargeFontSpan>here are my favorite languages and my (probably inaccurate) proficiency in
+                        them:</LargeFontSpan>
+                    <LanguageProgressBar language={"Java"} percentage={79}/>
+                    <LanguageProgressBar language={"Kotlin"} percentage={76}/>
+                    <LanguageProgressBar language={"Rust"} percentage={68}/>
+                    <LanguageProgressBar language={"C#"} percentage={65}/>
                     <h2>i am currently interested in:</h2>
                     <SmallerList>
                         <SmallerListItem>learning functional programming (specifically OCaml/Haskell)</SmallerListItem>
-                        <SmallerListItem>language development (see my projects <a href={"https://github.com/Maxuss/conduit-lang"} target={"_blank"}>Conduit</a> and <a href={"https://github.com/Maxuss/conduct"} target={"_blank"}>Conduct</a>)</SmallerListItem>
-                        <SmallerListItem>more backend development in Rust with <a href={"https://docs.rs/axum/latest/axum/"} target={"_blank"}>Axum</a></SmallerListItem>
+                        <SmallerListItem>language development (see my projects <a
+                            href={"https://github.com/Maxuss/conduit-lang"} target={"_blank"}>Conduit</a> and <a
+                            href={"https://github.com/Maxuss/conduct"} target={"_blank"}>Conduct</a>)</SmallerListItem>
+                        <SmallerListItem>more backend development in Rust with <a
+                            href={"https://docs.rs/axum/latest/axum/"} target={"_blank"}>Axum</a></SmallerListItem>
                     </SmallerList>
                 </AboutBody>
             </AboutBox>

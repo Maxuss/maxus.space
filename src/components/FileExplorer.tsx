@@ -24,21 +24,31 @@ export interface ExplorerProps {
     openDos: (src: string) => void
 }
 
-export const FileExplorer: React.FC<ExplorerProps> = ({ close, openNotepad, openImageViewer, openMediaPlayer, openDos }) => {
+export const FileExplorer: React.FC<ExplorerProps> = ({
+                                                          close,
+                                                          openNotepad,
+                                                          openImageViewer,
+                                                          openMediaPlayer,
+                                                          openDos
+                                                      }) => {
     const [activeDirectory, setActiveDirectory] = useState(FileSystem)
 
     const openFile = (ty: FileType, name: string, contents: ReactElement | string) => {
-        switch(ty) {
-            case "text": return openNotepad(name, contents as ReactElement)
-            case "image": return openImageViewer(contents as string)
-            case "video": return openMediaPlayer(contents as string)
-            case "game": return openDos(contents as string)
+        switch (ty) {
+            case "text":
+                return openNotepad(name, contents as ReactElement)
+            case "image":
+                return openImageViewer(contents as string)
+            case "video":
+                return openMediaPlayer(contents as string)
+            case "game":
+                return openDos(contents as string)
         }
     }
 
     return (<Modal
         title={`Exploring - ${activeDirectory.display}`}
-        icon={<FolderOpen />}
+        icon={<FolderOpen/>}
         closeModal={close}
         width={"100%"}
         height={"415"}
@@ -117,7 +127,7 @@ export const FileExplorer: React.FC<ExplorerProps> = ({ close, openNotepad, open
                         height: "320px",
                         maxHeight: "60vh",
                     }}
-                    children={[<div style={{marginTop: -10}}><Tree data={fileSystemTree(setActiveDirectory)} /></div>]}
+                    children={[<div style={{marginTop: -10}}><Tree data={fileSystemTree(setActiveDirectory)}/></div>]}
                 />
             </Nested>
             <Nested>
@@ -143,7 +153,8 @@ export const FileExplorer: React.FC<ExplorerProps> = ({ close, openNotepad, open
                         overflowY: "auto",
                         maxHeight: "60vh",
                     }}
-                    children={[<FileList files={activeDirectory.elements} openFile={openFile} setActiveFolder={setActiveDirectory} />]}
+                    children={[<FileList files={activeDirectory.elements} openFile={openFile}
+                                         setActiveFolder={setActiveDirectory}/>]}
                 />
             </Nested>
         </Dual>

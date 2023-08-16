@@ -44,8 +44,8 @@ const Play = () => (<svg
         height: 12
     }}
 >
-        <path d="M35.353 0l424.236 247.471L35.353 494.942z" />
-    </svg>);
+    <path d="M35.353 0l424.236 247.471L35.353 494.942z"/>
+</svg>);
 
 
 const Pause = () => (
@@ -60,7 +60,7 @@ const Pause = () => (
             height: 12
         }}
     >
-        <path d="M256.471 2h176.765v424.236H256.471zM2 2h176.765v424.236H2z" />
+        <path d="M256.471 2h176.765v424.236H256.471zM2 2h176.765v424.236H2z"/>
     </svg>
 );
 
@@ -75,7 +75,7 @@ const Stop = () => (
             height: 12
         }}
     >
-        <path d="M0 0h306v306H0z" />
+        <path d="M0 0h306v306H0z"/>
     </svg>
 );
 
@@ -85,7 +85,7 @@ export interface MediaProps {
     close: () => void,
 }
 
-export const MediaPlayer: React.FC<MediaProps> = ({ src, isMobile, close }) => {
+export const MediaPlayer: React.FC<MediaProps> = ({src, isMobile, close}) => {
     const [mediaName, setMediaName] = useState("NULL.MOV")
     const player = useRef<HTMLVideoElement>(null);
     const [isPlaying, setPlaying] = useState(false);
@@ -96,7 +96,7 @@ export const MediaPlayer: React.FC<MediaProps> = ({ src, isMobile, close }) => {
     }, [src]);
 
     return (<Modal
-        icon={<MediaVideo variant={"32x32_4"} />}
+        icon={<MediaVideo variant={"32x32_4"}/>}
         title={`MediaPlayer - ${mediaName}`}
         closeModal={close}
         menu={[
@@ -131,7 +131,7 @@ export const MediaPlayer: React.FC<MediaProps> = ({ src, isMobile, close }) => {
             padding={2}
             children={[
                 <VideoContainer>
-                    <VideoTag src={src} ref={player} />
+                    <VideoTag src={src} ref={player}/>
                     <Frame
                         bg="lightgray"
                         boxShadow="in"
@@ -144,19 +144,20 @@ export const MediaPlayer: React.FC<MediaProps> = ({ src, isMobile, close }) => {
                             <Controls>
                                 <ControlBtn
                                     onClick={() => {
-                                        if(!isPlaying) {
-                                            player.current?.play().finally(() => { });
+                                        if (!isPlaying) {
+                                            player.current?.play().finally(() => {
+                                            });
                                         } else {
                                             player.current?.pause();
                                         }
                                         setPlaying(!isPlaying);
                                     }}
                                 >
-                                    {isPlaying ? <Pause /> : <Play />}
+                                    {isPlaying ? <Pause/> : <Play/>}
                                 </ControlBtn>
                                 <ControlBtn
                                     onClick={() => {
-                                        if(player.current) {
+                                        if (player.current) {
                                             player.current.pause();
                                             player.current.currentTime = 0;
                                         }
@@ -164,7 +165,7 @@ export const MediaPlayer: React.FC<MediaProps> = ({ src, isMobile, close }) => {
                                         setPlaying(false);
                                     }}
                                 >
-                                    <Stop />
+                                    <Stop/>
                                 </ControlBtn>
 
                             </Controls>
