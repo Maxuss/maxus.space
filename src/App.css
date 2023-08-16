@@ -3,8 +3,11 @@ body {
     background-size: cover;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     body {
-        background-size: auto;
+        background-position: center center;
+    }
+    html {
+        height: 100%;
     }
 }
