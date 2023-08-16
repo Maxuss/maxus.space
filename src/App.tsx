@@ -13,6 +13,7 @@ import "./App.css"
 import {FileExplorer} from "./components/FileExplorer.tsx";
 import {ImageViewer} from "./components/fs/ImageViewer.tsx";
 import {MediaPlayer} from "./components/fs/MediaPlayer.tsx";
+import {DosPlayer} from "./components/dos/DOSPlayer.tsx";
 
 const IconAboutMe = Clickable(Winhlp324000);
 const IconMusic = Clickable(CdMusic);
@@ -31,6 +32,8 @@ function App() {
     const [imageViewerImage, setImageViewerImage] = useState("/vite.svg");
     const [isMediaViewerClosed, setMediaViewerClosed] = useState(true);
     const [mediaViewerFile, setMediaViewerFile] = useState("/videos/ralsei2.mp4");
+
+    const [isDosClosed, setDosClosed] = useState(true);
 
     const isMobile = window.innerWidth < 850;
 
@@ -73,6 +76,11 @@ function App() {
                     <IconFileExplorer variant={"32x32_4"} onClick={() => setExplorerClosed(false)} />
                     <IconName>Explorer</IconName>
                 </ProgramIcon>
+                <ProgramIcon>
+                    <IconFileExplorer variant={"32x32_4"} onClick={() => setDosClosed(false)} />
+                    <IconName>DOS</IconName>
+                </ProgramIcon>
+
             </ProgramIcons>
 
             {!isAboutClosed && <AboutModal close={() => setAboutClosed(true)} />}
@@ -89,6 +97,7 @@ function App() {
 
             {!isMediaViewerClosed && <MediaPlayer isMobile={isMobile} src={mediaViewerFile} close={() => setMediaViewerClosed(true)} />}
 
+            {!isDosClosed && <DosPlayer isMobile={isMobile} close={() => setDosClosed(true)} bundleUrl={"/dos-bundles/doom.jsdos"} />}
             <Bar />
         </div>
     </>

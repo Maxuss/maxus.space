@@ -13,6 +13,8 @@
     "@react95/core": "^6.1.2",
     "@react95/icons": "^2.0.7",
     "@xstyled/styled-components": "^3.8.0",
+    "emulators-ui": "^0.73.9",
+    "js-dos": "^7.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.0.6"
