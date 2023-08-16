@@ -15,10 +15,18 @@
 
     <title>maxus lives here</title>
 
-    <script src="js-dos/js-dos.js"></script>
     <link rel="stylesheet" href="/js-dos/js-dos.css">
     <script>
-      emulators.pathPrefix = "/js-dos/";
+      // I WILL load js-dos asynchronously, and you can do NOTHING about it
+      [
+              "js-dos/js-dos.js",
+              "js-dos/extra.js"
+      ].forEach(each => {
+        const script = document.createElement("script");
+        script.src = each;
+        script.async = false;
+        document.head.appendChild(script);
+      })
     </script>
   </head>
   <body>
