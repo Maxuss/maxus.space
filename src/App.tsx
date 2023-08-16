@@ -12,6 +12,7 @@ import Filler from "./components/projects/Filler.tsx";
 import "./App.css"
 import {FileExplorer} from "./components/FileExplorer.tsx";
 import {ImageViewer} from "./components/fs/ImageViewer.tsx";
+import {MediaPlayer} from "./components/fs/MediaPlayer.tsx";
 
 const IconAboutMe = Clickable(Winhlp324000);
 const IconMusic = Clickable(CdMusic);
@@ -28,6 +29,8 @@ function App() {
     const [isExplorerClosed, setExplorerClosed] = useState(true);
     const [isImageViewerClosed, setImageViewerClosed] = useState(true);
     const [imageViewerImage, setImageViewerImage] = useState("/vite.svg");
+    const [isMediaViewerClosed, setMediaViewerClosed] = useState(true);
+    const [mediaViewerFile, setMediaViewerFile] = useState("/videos/ralsei2.mp4");
 
     const isMobile = window.innerWidth < 850;
 
@@ -42,6 +45,12 @@ function App() {
         setImageViewerImage(newSrc);
         if(isImageViewerClosed)
             setImageViewerClosed(false)
+    }
+
+    const changeMediaPlayerFile = (newSrc: string) => {
+        setMediaViewerFile(newSrc);
+        if(isMediaViewerClosed)
+            setMediaViewerClosed(false)
     }
 
     return (
@@ -74,9 +83,11 @@ function App() {
 
             {!isProjectExplorerClosed && <ProjectExplorer changeNotepadPage={changeNotepadPage} closeProjectExplorer={() => setProjectExplorerClosed(true)} />}
 
-            {!isExplorerClosed && <FileExplorer openImageViewer={changeImageViewerImage} openNotepad={changeNotepadPage} isMobile={isMobile} close={() => setExplorerClosed(true)} />}
+            {!isExplorerClosed && <FileExplorer openMediaPlayer={changeMediaPlayerFile} openImageViewer={changeImageViewerImage} openNotepad={changeNotepadPage} isMobile={isMobile} close={() => setExplorerClosed(true)} />}
 
             {!isImageViewerClosed && <ImageViewer isMobile={isMobile} src={imageViewerImage} close={() => setImageViewerClosed(true)} />}
+
+            {!isMediaViewerClosed && <MediaPlayer isMobile={isMobile} src={mediaViewerFile} close={() => setMediaViewerClosed(true)} />}
 
             <Bar />
         </div>

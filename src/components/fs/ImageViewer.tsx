@@ -9,7 +9,7 @@ export interface ImageProps {
 }
 
 export const ImageViewer: React.FC<ImageProps> = ({ src, isMobile, close }) => {
-    const [imageName, setImageName] = useState("UNUSED.PNG")
+    const [imageName, setImageName] = useState("NULL.JPG")
     useEffect(() => {
         const split = src.split("/");
         setImageName(split[split.length - 1].toUpperCase())

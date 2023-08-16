@@ -1,5 +1,6 @@
 import {ReactElement} from "react";
 import {
+    Amovie2,
     Brush,
     Computer4,
     Defrag2, FileIcons,
@@ -81,7 +82,15 @@ export const FileSystem: Directory = {
                     path: "C:/Videos",
                     display: "Videos",
                     icon: <Folder variant={"16x16_4"} />,
-                    elements: [ ]
+                    elements: [
+                        {
+                            path: "C:/Videos/ralsei.mp4",
+                            display: "ralsei.mp4",
+                            icon: <Amovie2 variant={"16x16_4"} />,
+                            ty: "video",
+                            contents: "/videos/ralsei2.mp4"
+                        }
+                    ]
                 },
                 {
                     path: "C:/Trash",
