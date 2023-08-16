@@ -150,6 +150,7 @@ function mapDirEntry(setActiveFolder: (dir: Directory) => void, dir: Directory, 
     }
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function fileSystemTree(setActiveFolder: (dir: Directory) => void): NodeProps[] {
     return [mapDirEntry(setActiveFolder, FileSystem, 0)]
 }
