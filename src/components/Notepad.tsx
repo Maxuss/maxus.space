@@ -83,19 +83,21 @@ export const ProjectLinks: React.FC<LinkProps> = ({links}) => {
 
 export interface ExternLinkProps {
     href: string,
-    desc: string
+    desc: string,
+    icon?: ReactElement | null
 }
 
-export const ExternLink: React.FC<ExternLinkProps> = ({href, desc}) => {
+export const ExternLink: React.FC<ExternLinkProps> = ({href, desc, icon = null }: ExternLinkProps) => {
     return (
         <span>
             <Tooltip text={href}>
                 <LinkHidden href={href} target={"_blank"}>{desc}</LinkHidden>
-                <WebLink style={{marginRight: 5, height: 12, width: 12}} variant={"16x16_4"}/>
+                {icon === null ? <WebLink style={{marginRight: 5, height: 12, width: 12}} variant={"16x16_4"}/> : icon}
             </Tooltip>
         </span>
     )
 }
+
 
 export interface NotepadProps {
     openComponent: ReactElement,

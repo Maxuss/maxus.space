@@ -14,6 +14,7 @@ import {FileExplorer} from "./components/FileExplorer.tsx";
 import {ImageViewer} from "./components/fs/ImageViewer.tsx";
 import {MediaPlayer} from "./components/fs/MediaPlayer.tsx";
 import {DosPlayer} from "./components/dos/DOSPlayer.tsx";
+import {ContactsModal} from "./components/ContactsModal.tsx";
 
 const IconAboutMe = Clickable(Winhlp324000);
 const IconMusic = Clickable(CdMusic);
@@ -32,6 +33,7 @@ function App() {
     const [imageViewerImage, setImageViewerImage] = useState("/vite.svg");
     const [isMediaViewerClosed, setMediaViewerClosed] = useState(true);
     const [mediaViewerFile, setMediaViewerFile] = useState("/videos/ralsei2.mp4");
+    const [isContactsClosed, setContactsClosed] = useState(true);
 
     const [isDosClosed, setDosClosed] = useState(true);
     const [dosApp, setDosApp] = useState("/dos-bundles/doom.jsdos");
@@ -109,7 +111,9 @@ function App() {
 
                 {!isDosClosed && <DosPlayer isMobile={isMobile} close={() => setDosClosed(true)} bundleUrl={dosApp}/>}
 
-                <Bar openFileExplorer={() => setExplorerClosed(false)} openProjectExplorer={() => setProjectExplorerClosed(false)} openContacts={() => { }} />
+                {!isContactsClosed && <ContactsModal close={() => setContactsClosed(true)} />}
+
+                <Bar openFileExplorer={() => setExplorerClosed(false)} openProjectExplorer={() => setProjectExplorerClosed(false)} openContacts={() => setContactsClosed(false)} />
             </div>
         </>
     )
