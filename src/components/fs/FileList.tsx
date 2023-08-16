@@ -22,18 +22,18 @@ const IconContainer = styled.span`
 export const FileList: React.FC<FileListProps> = ({ files, openFile, setActiveFolder }) => {
     return (<FileListContainer>
         {
-            files.map(entry => {
+            files.map((entry, idx) => {
                 if("elements" in entry) {
                     // is a dir
                     const dir = entry as Directory;
-                    return <span onClick={() => setActiveFolder(dir)}>
+                    return <span onClick={() => setActiveFolder(dir)} key={idx}>
                         <IconContainer>{dir.icon}</IconContainer>
                         <Unselectable>{dir.display}</Unselectable>
                     </span>
                 } else {
                     // is a file
                     const file = entry as File;
-                    return <span onClick={() => openFile(file.ty, file.display, file.contents)}>
+                    return <span onClick={() => openFile(file.ty, file.display, file.contents)} key={idx}>
                         <IconContainer>{file.icon}</IconContainer>
                         <Unselectable>{file.display}</Unselectable>
                     </span>
