@@ -1,4 +1,4 @@
-import {CdMusic, FolderExe2, FolderFile, Winhlp324000} from "@react95/icons";
+import {CdMusic, Drvspace7, FolderExe2, FolderFile, Winhlp324000} from "@react95/icons";
 import {Bar} from "./components/TaskBar.tsx";
 
 import {LastFmPlaying} from "./components/LastFmPlaying.tsx";
@@ -84,6 +84,10 @@ function App() {
                     <ProgramIcon>
                         <IconFileExplorer variant={"32x32_4"} onClick={() => setExplorerClosed(false)}/>
                         <IconName>Explorer</IconName>
+                    </ProgramIcon>
+                    <ProgramIcon>
+                        <Drvspace7 variant={"32x32_4"} onClick={() => setContactsClosed(false)}/>
+                        <IconName>Contacts</IconName>
                     </ProgramIcon>
                 </ProgramIcons>
 

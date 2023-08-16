@@ -30,7 +30,7 @@ const ContactFooter = styled.span`
 export const ContactsModal: React.FC<ContactsProps> = ({ close }) => {
     return <Modal
         closeModal={close}
-        width="260" height="350"
+        width="270" height="350"
         buttons={[{
             value: "Ok",
             onClick: close
@@ -45,7 +45,7 @@ export const ContactsModal: React.FC<ContactsProps> = ({ close }) => {
             <h2>contact me: </h2>
             <span>discord: maxusdev</span>
             <span>github: <ExternLink href={"https://github.com/Maxuss"} desc={"Maxuss"} /></span>
-            <span>mastodon: <ExternLink href={"https://mastodon.social/@maxusdev"} desc={"maxusdev@mastodon.dev"} /></span>
+            <span>mastodon: <ExternLink href={"https://mastodon.social/@maxusdev"} desc={"maxusdev@mastodon.social"} /></span>
             <span>twitter: <ExternLink href={"https://twitter.com/maxusdev"} desc={"maxusdev"} /></span>
             <span>last.fm: <ExternLink href={"https://last.fm/user/maxusdev"} desc={"maxusdev"} /></span>
             <span>telegram: <ExternLink href={"https://t.me/maxusdev"} desc={"maxusdev"} /></span>
