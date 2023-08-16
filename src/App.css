@@ -1,13 +1,9 @@
 body {
     background-image: url("/wallpaper.webp");
     background-size: cover;
+    background-position: center center;
 }
 
-@media (max-width: 850px) {
-    body {
-        background-position: center center;
-    }
-    html {
-        height: 100%;
-    }
+html {
+    height: 100%;
 }
