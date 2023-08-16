@@ -108,7 +108,8 @@ function App() {
                     <MediaPlayer isMobile={isMobile} src={mediaViewerFile} close={() => setMediaViewerClosed(true)}/>}
 
                 {!isDosClosed && <DosPlayer isMobile={isMobile} close={() => setDosClosed(true)} bundleUrl={dosApp}/>}
-                <Bar/>
+
+                <Bar openFileExplorer={() => setExplorerClosed(false)} openProjectExplorer={() => setProjectExplorerClosed(false)} openContacts={() => { }} />
             </div>
         </>
     )
