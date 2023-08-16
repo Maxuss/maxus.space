@@ -109,7 +109,7 @@ function iconList(parentDir: string, files: string[]): File[] {
             path: `${parentDir}/${each}`,
             display: each,
             icon: <FileIcons variant={"32x32_4"} style={{width: 16, height: 16}} />,
-            contents: `/${each}`,
+            contents: `/icons/${each}`,
             ty: "image"
         }
     })
