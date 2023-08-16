@@ -122,7 +122,7 @@ export const FileExplorer: React.FC<ExplorerProps> = ({ close, openNotepad, open
                     boxShadow="in"
                     style={{
                         height: "6%",
-                        width: 310
+                        width: 210
                     }}
                     padding={5}
                     children={[
