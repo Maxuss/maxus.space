@@ -77,7 +77,7 @@ export const LastFmPlaying: React.FC<LastFmProps> = ({close}) => {
             icon={<CdMusic variant="16x16_4"/>}
         >
             <PlayingTrack>
-                <Avatar src={currentTrack.image[2]["#text"]} size={60}/>
+                <Avatar src={currentTrack.image[2]["#text"]} size={60} alt={"album artwork"} />
                 <TrackDescription>
                     <b><a href={currentTrack.url} target={"_blank"}
                           style={{textDecoration: "none"}}>{truncateStr(currentTrack.name)}</a></b>
