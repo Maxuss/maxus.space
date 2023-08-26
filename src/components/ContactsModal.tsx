@@ -48,6 +48,7 @@ export const ContactsModal: React.FC<ContactsProps> = ({ close }) => {
             <span>mastodon: <ExternLink href={"https://mastodon.social/@maxusdev"} desc={"maxusdev@mastodon.social"} /></span>
             <span>twitter: <ExternLink href={"https://twitter.com/maxusdev"} desc={"maxusdev"} /></span>
             <span>last.fm: <ExternLink href={"https://last.fm/user/maxusdev"} desc={"maxusdev"} /></span>
+            <span>spotify: <ExternLink href={"https://open.spotify.com/user/52o934vvi6h7eo8wb2w7wvjb9?si=6cbabb02027d4790"} desc={"maxus"} /></span>
             <span>telegram: <ExternLink href={"https://t.me/maxusdev"} desc={"maxusdev"} /></span>
             <span>revolt: maxus#8637</span>
             <span>matrix: xtremum:matrix.org</span>
