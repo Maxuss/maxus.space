@@ -73,12 +73,19 @@ export const FileSystem: Directory = {
                             elements: iconList("C:/Photos/Icons", ["csharp.svg", "java.svg", "kotlin.svg", "nextjs.svg", "react.svg", "rust.svg", "typescript.svg", "vite.svg"])
                         },
                         {
-                            path: "C:/Photos/ralsei.jpg",
-                            display: "ralsei.jpg",
+                            path: "C:/Photos/asciicat.png",
+                            display: "asciicat.png",
                             icon: <Brush variant={"32x32_4"} style={{ width: 16, height: 16 }} />,
-                            contents: "/images/ralsei1.jpg",
+                            contents: "/images/asciicat.png",
                             ty: "image"
-                        }
+                        },
+                        {
+                            path: "C:/Photos/pfp.jpg",
+                            display: "pfp.jpg",
+                            icon: <Brush variant={"32x32_4"} style={{ width: 16, height: 16 }} />,
+                            contents: "/pfp.jpg",
+                            ty: "image"
+                        },
                     ]
                 },
                 {
@@ -87,11 +94,11 @@ export const FileSystem: Directory = {
                     icon: <Folder variant={"16x16_4"} />,
                     elements: [
                         {
-                            path: "C:/Videos/ralsei.mp4",
-                            display: "ralsei.mp4",
+                            path: "C:/Videos/nothing.mp4",
+                            display: "nothing.mp4",
                             icon: <Amovie2 variant={"16x16_4"} />,
                             ty: "video",
-                            contents: "/videos/ralsei2.mp4"
+                            contents: "https://cdn.discordapp.com/attachments/1116754388921356440/1150410375821529118/7YlWvtF.mp4"
                         },
                         {
                             path: "C:/Videos/verses-showcase.gif",
