@@ -1,5 +1,5 @@
-import React, {ReactElement} from "react";
-import {Frame, Modal, Tree} from "@react95/core";
+import React, { ReactElement } from "react";
+import { Frame, Modal, Tree } from "@react95/core";
 import {
     BlankScreen100,
     FileCorrupted,
@@ -14,8 +14,8 @@ import {
     FolderShared,
     Mshtml32528
 } from "@react95/icons";
-import {NodeProps} from "@react95/core/@types/Tree/Node";
-import {Clickable} from "./ProgramIcon.tsx";
+import { NodeProps } from "@react95/core/@types/Tree/Node";
+import { Clickable } from "./ProgramIcon.tsx";
 import ChatGptRs from "./projects/ChatGptRs.tsx";
 import Flare from "./projects/Flare.tsx";
 import Macrocosm from "./projects/Macrocosm.tsx";
@@ -29,144 +29,153 @@ import ConduitLang from "./projects/ConduitLang.tsx";
 import ConductLang from "./projects/ConductLang.tsx";
 import MaxusSpace from "./projects/MaxusSpace.tsx";
 import TerminalMaxusSpace from "./projects/TerminalMaxusSpace.tsx";
+import Verses from "./projects/Verses.tsx";
 
 function treeNodes(changeNotepadPage: (name: string, to: ReactElement) => void): NodeProps[] {
     return [
         {
             label: "AI",
-            icon: <Folder/>,
+            icon: <Folder />,
             id: 0,
             children: [
                 {
                     label: "ChatGPT.rs",
-                    icon: <FilePen/>,
+                    icon: <FilePen />,
                     id: 0,
                     onClick() {
-                        changeNotepadPage("chatgpt.rs", <ChatGptRs/>)
+                        changeNotepadPage("chatgpt.rs", <ChatGptRs />)
                     }
                 },
             ]
         },
         {
             label: "Minecraft",
-            icon: <FolderShared/>,
+            icon: <FolderShared />,
             id: 1,
             children: [
                 {
                     label: "Flare.java",
-                    icon: <FileFind/>,
+                    icon: <FileFind />,
                     id: 0,
                     onClick() {
-                        changeNotepadPage("flare.java", <Flare/>)
+                        changeNotepadPage("flare.java", <Flare />)
                     }
                 },
                 {
                     label: "SkyblockD.java",
-                    icon: <FileCorrupted/>,
+                    icon: <FileCorrupted />,
                     id: 1,
                     onClick() {
-                        changeNotepadPage("skyblockd.java", <SkyblockD/>)
+                        changeNotepadPage("skyblockd.java", <SkyblockD />)
                     }
                 },
                 {
                     label: "Macrocosm.kt",
-                    icon: <FilePen/>,
+                    icon: <FilePen />,
                     id: 2,
                     onClick() {
-                        changeNotepadPage("macrocosm.kt", <Macrocosm/>)
+                        changeNotepadPage("macrocosm.kt", <Macrocosm />)
                     }
                 },
                 {
                     label: "SharpFunction.cs",
-                    icon: <FileCorrupted/>,
+                    icon: <FileCorrupted />,
                     id: 3,
                     onClick() {
-                        changeNotepadPage("sharpfunction.cs", <SharpFunction/>)
+                        changeNotepadPage("sharpfunction.cs", <SharpFunction />)
                     }
                 },
                 {
                     label: "lobstermessage.rs",
-                    icon: <FileText/>,
+                    icon: <FileText />,
                     id: 4,
                     onClick() {
-                        changeNotepadPage("lobstermessage.rs", <LobsterMessage/>)
+                        changeNotepadPage("lobstermessage.rs", <LobsterMessage />)
                     }
                 },
                 {
                     label: "picolimbo.rs",
-                    icon: <FileTransfer/>,
+                    icon: <FileTransfer />,
                     id: 5,
                     onClick() {
-                        changeNotepadPage("picolimbo.rs", <PicoLimbo/>)
+                        changeNotepadPage("picolimbo.rs", <PicoLimbo />)
                     }
                 },
                 {
                     label: "resourcepackd.rs",
-                    icon: <FileFont/>,
+                    icon: <FileFont />,
                     id: 6,
                     onClick() {
-                        changeNotepadPage("resourcepackd.rs", <ResourcepackD/>)
+                        changeNotepadPage("resourcepackd.rs", <ResourcepackD />)
                     }
                 }
             ]
         },
         {
             label: "Language Development",
-            icon: <Folder/>,
+            icon: <Folder />,
             id: 2,
             children: [
                 {
                     label: "Conduit language (unfinished).rs",
-                    icon: <Files/>,
+                    icon: <Files />,
                     id: 0,
                     onClick() {
-                        changeNotepadPage("conduit.rs", <ConduitLang/>)
+                        changeNotepadPage("conduit.rs", <ConduitLang />)
                     }
                 },
                 {
                     label: "Conduct language (unfinished).rs",
-                    icon: <Files/>,
+                    icon: <Files />,
                     id: 1,
                     onClick() {
-                        changeNotepadPage("conduct.rs", <ConductLang/>)
+                        changeNotepadPage("conduct.rs", <ConductLang />)
                     }
                 }
             ]
         },
         {
             label: "Web",
-            icon: <Folder/>,
+            icon: <Folder />,
             id: 3,
             children: [
                 {
                     label: "maxus.space",
-                    icon: <Mshtml32528 variant={"16x16_4"}/>,
+                    icon: <Mshtml32528 variant={"16x16_4"} />,
                     id: 0,
                     onClick() {
-                        changeNotepadPage("maxus.space", <MaxusSpace/>)
+                        changeNotepadPage("maxus.space", <MaxusSpace />)
                     }
                 },
                 {
                     label: "terminal.maxus.space",
-                    icon: <BlankScreen100 variant={"16x16_4"}/>,
+                    icon: <BlankScreen100 variant={"16x16_4"} />,
                     id: 1,
                     onClick() {
-                        changeNotepadPage("terminal.maxus.space", <TerminalMaxusSpace/>)
+                        changeNotepadPage("terminal.maxus.space", <TerminalMaxusSpace />)
                     }
                 }
             ]
         },
         {
             label: "Other",
-            icon: <Folder/>,
+            icon: <Folder />,
             id: 4,
             children: [
                 {
-                    label: "dnevnik-mos.rs",
-                    icon: <FileText/>,
+                    label: "verses.rs",
+                    icon: <FileText />,
                     id: 0,
                     onClick() {
-                        changeNotepadPage("dnevnik.rs", <DnevnikRust/>)
+                        changeNotepadPage("verses.rs", <Verses />)
+                    }
+                },
+                {
+                    label: "dnevnik-mos.rs",
+                    icon: <FileText />,
+                    id: 1,
+                    onClick() {
+                        changeNotepadPage("dnevnik.rs", <DnevnikRust />)
                     }
                 }
             ]
@@ -181,12 +190,12 @@ interface ProjectExplorerProps {
 
 const ClickableTree = Clickable(Tree);
 
-export const ProjectExplorer: React.FC<ProjectExplorerProps> = ({changeNotepadPage, closeProjectExplorer}) => {
+export const ProjectExplorer: React.FC<ProjectExplorerProps> = ({ changeNotepadPage, closeProjectExplorer }) => {
     return (
         <Modal
             closeModal={() => closeProjectExplorer()}
             title={"Project Explorer"}
-            icon={<FolderFile/>}
+            icon={<FolderFile />}
             width={"300"}
             height={"120%"}
         >
@@ -200,7 +209,7 @@ export const ProjectExplorer: React.FC<ProjectExplorerProps> = ({changeNotepadPa
                     maxHeight: "60vh",
                 }}
             >
-                <ClickableTree data={treeNodes(changeNotepadPage)}/>
+                <ClickableTree data={treeNodes(changeNotepadPage)} />
             </Frame>
         </Modal>
     )
